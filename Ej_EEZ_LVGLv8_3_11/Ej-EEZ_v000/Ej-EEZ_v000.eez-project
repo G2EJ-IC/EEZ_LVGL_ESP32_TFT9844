@@ -999,7 +999,7 @@
               "hiddenInEditor": false,
               "timeline": [],
               "eventHandlers": [],
-              "identifier": "LabelSubPagina_Ok",
+              "identifier": "LabelSubPagina_1_Ok",
               "leftUnit": "px",
               "topUnit": "px",
               "widthUnit": "%",
@@ -1129,7 +1129,7 @@
             }
           ],
           "flags": "PRESS_LOCK|CLICK_FOCUSABLE|GESTURE_BUBBLE|SNAPPABLE|SCROLL_ELASTIC|SCROLL_MOMENTUM|SCROLL_CHAIN",
-          "hiddenFlag": true,
+          "hiddenFlag": false,
           "hiddenFlagType": "literal",
           "clickableFlag": false,
           "clickableFlagType": "literal",

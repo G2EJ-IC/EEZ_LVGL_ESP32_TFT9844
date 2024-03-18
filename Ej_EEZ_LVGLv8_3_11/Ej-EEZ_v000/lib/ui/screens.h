@@ -24,7 +24,7 @@ typedef struct _objects_t {
     lv_obj_t *bt_pagina_uno_l_1;
     lv_obj_t *bt_plus;
     lv_obj_t *label_counter;
-    lv_obj_t *label_sub_pagina_ok;
+    lv_obj_t *label_sub_pagina_1_ok;
     lv_obj_t *panel_main1;
     lv_obj_t *panel_main1_1;
     lv_obj_t *panel_main1_2;

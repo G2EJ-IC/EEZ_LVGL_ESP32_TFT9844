@@ -299,7 +299,6 @@ void create_screen_main1() {
             objects.panel_sub_pagina_1_ok = obj;
             lv_obj_set_pos(obj, 56, 138);
             lv_obj_set_size(obj, LV_PCT(75), LV_PCT(53));
-            lv_obj_add_flag(obj, LV_OBJ_FLAG_HIDDEN);
             lv_obj_clear_flag(obj, LV_OBJ_FLAG_CLICKABLE|LV_OBJ_FLAG_SCROLLABLE);
             lv_obj_set_style_bg_color(obj, lv_color_hex(0xffc8c8c8), LV_PART_MAIN | LV_STATE_DEFAULT);
             lv_obj_set_style_border_color(obj, lv_color_hex(0xff000000), LV_PART_MAIN | LV_STATE_DEFAULT);
@@ -309,9 +308,9 @@ void create_screen_main1() {
             {
                 lv_obj_t *parent_obj = obj;
                 {
-                    // LabelSubPagina_Ok
+                    // LabelSubPagina_1_Ok
                     lv_obj_t *obj = lv_label_create(parent_obj);
-                    objects.label_sub_pagina_ok = obj;
+                    objects.label_sub_pagina_1_ok = obj;
                     lv_obj_set_pos(obj, 0, 0);
                     lv_obj_set_size(obj, LV_PCT(100), LV_PCT(45));
                     lv_label_set_text(obj, "Contador\n(.:: 0 ::.)");

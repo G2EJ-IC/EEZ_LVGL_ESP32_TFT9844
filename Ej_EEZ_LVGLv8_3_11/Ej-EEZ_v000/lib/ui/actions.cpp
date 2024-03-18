@@ -65,22 +65,22 @@ extern void action_fn_pagina_1_ok(lv_event_t * e)
 {
 	std::string counter2 = "Pagina Uno\n(.::" + std::to_string(counter) + "::.)";
 	const char *counter3 = counter2.c_str();
-	lv_label_set_text(objects.label_sub_pagina_ok, counter3);
-	lv_obj_clear_flag(objects.panel_sub_pagina_ok, LV_OBJ_FLAG_HIDDEN);
+	lv_label_set_text(objects.label_sub_pagina_1_ok, counter3);
+	lv_obj_clear_flag(objects.panel_sub_pagina_1_ok, LV_OBJ_FLAG_HIDDEN);
 }
 
 extern void action_fn_pagina_2_ok(lv_event_t * e)
 {
 	std::string counter2 = "Pagina Dos\n(.::" + std::to_string(counter) + "::.)";
 	const char *counter3 = counter2.c_str();
-	lv_label_set_text(objects.label_sub_pagina_ok, counter3);
-	lv_obj_clear_flag(objects.panel_sub_pagina_ok, LV_OBJ_FLAG_HIDDEN);
+	lv_label_set_text(objects.label_sub_pagina_1_ok, counter3);
+	lv_obj_clear_flag(objects.panel_sub_pagina_1_ok, LV_OBJ_FLAG_HIDDEN);
 }
 
 extern void action_fn_pagina_3_ok(lv_event_t * e)
 {
 	std::string counter2 = "Pagina Tres\n(.::" + std::to_string(counter) + "::.)";
 	const char *counter3 = counter2.c_str();	
-	lv_label_set_text(objects.label_sub_pagina_ok, counter3);
-	lv_obj_clear_flag(objects.panel_sub_pagina_ok, LV_OBJ_FLAG_HIDDEN);
+	lv_label_set_text(objects.label_sub_pagina_1_ok, counter3);
+	lv_obj_clear_flag(objects.panel_sub_pagina_1_ok, LV_OBJ_FLAG_HIDDEN);
 }
