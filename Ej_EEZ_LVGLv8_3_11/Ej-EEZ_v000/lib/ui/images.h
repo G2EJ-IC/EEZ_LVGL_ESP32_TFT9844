@@ -3,6 +3,7 @@
 
 #include <lvgl.h>
 
+extern const lv_img_dsc_t img_g2ej;
 
 #ifndef EXT_IMG_DESC_T
 #define EXT_IMG_DESC_T

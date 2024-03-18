@@ -9,9 +9,11 @@ extern "C" {
 
 #include <lvgl.h>
 
-extern void action_fn_conectar_wi_fi(lv_event_t * e);
-extern void action_fn_des_conectar_wi_fi(lv_event_t * e);
+extern void action_fn_pagina_inicial(lv_event_t * e);
+extern void action_fn_pagina_uno(lv_event_t * e);
 extern void action_fn_presionar_bt_ok(lv_event_t * e);
+extern void action_fn_plus(lv_event_t * e);
+extern void action_fn_minus(lv_event_t * e);
 
 
 #ifdef __cplusplus

@@ -3,9 +3,6 @@
 #include "soc/timer_group_reg.h"     //for wdt
 #include "LovyanGFX_Class_ILI9488.h"
 #include <ui.h>
-#include <WiFi.h>
-#include <WiFiManager.h>
-#include <ConectarWiFi_AIoT.h>
 #include "display_service.h"
 #include "io_service.h"
 #include "tp_service.h"
@@ -40,7 +37,6 @@ void loop1(void *);
 void loop2(void *);
 void loop3(void *);
 //************************************************************************************************
-void StatusWiFi_AIoT(void);
 void TestHwm(const char *);
 //************************************************************************************************
 
@@ -71,7 +67,6 @@ void setup()
   Serial.begin(115200);
   pinMode(PinLED, OUTPUT);
   digitalWrite(PinLED, !digitalRead(PinLED));
-  WiFi.mode(WIFI_STA);
   /************************************FreeRTOS*******************************************/
   BaseType_t taskCreationResult;  
   taskCreationResult = xTaskCreatePinnedToCore(
@@ -81,7 +76,7 @@ void setup()
       NULL,
       1,
       &Task1,
-      1);
+      0);
   if (taskCreationResult != pdPASS)
   {
     Serial.println("Error al crear Task1");
@@ -91,7 +86,7 @@ void setup()
   taskCreationResult = xTaskCreatePinnedToCore(
       loop2,
       "Task_2",
-      10000,
+      12000,
       NULL,
       1,
       &Task2,
@@ -149,7 +144,8 @@ inline void loop_Task2(void)
 
 inline void loop_Task3(void)
 {
-  StatusWiFi_AIoT();
+  tp.loop();
+  Serial.println("\nloop_Task3 Vacio.");
 }
 
 void loop1(void *parameter)
@@ -184,31 +180,13 @@ void loop3(void *parameter)
 {
   for (;;)
   {
-    vTaskDelay(pdMS_TO_TICKS(5000));
     loop_Task3();
+    vTaskDelay(pdMS_TO_TICKS(5000));
     TestHwm("loop3");    
   }
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////
-void StatusWiFi_AIoT(void)
-{
-  if (WiFi.status() == WL_CONNECTED) {
-	  lv_label_set_text(objects.ui_lab_ssid, WiFi.SSID().c_str());
-		lv_label_set_text(objects.ui_lab_ip, WiFi.localIP().toString().c_str());
-		lv_label_set_text(objects.ui_lab_dns, WiFi.dnsIP().toString().c_str());
-		lv_label_set_text(objects.ui_lab_mac, WiFi.macAddress().c_str());
-    lv_obj_set_style_bg_color(objects.ui_bt_conectado, lv_color_hex(0x008000), LV_PART_MAIN | LV_STATE_DEFAULT);
-  } else {
-	  lv_label_set_text(objects.ui_lab_ssid, "xx.xx.xx.xx");
-		lv_label_set_text(objects.ui_lab_ip, "xx.xx.xx.xx");
-		lv_label_set_text(objects.ui_lab_dns, "xx.xx.xx.xx");
-		lv_label_set_text(objects.ui_lab_mac, "xx:xx:xx:xx:xx:xx");
-    lv_obj_set_style_bg_color(objects.ui_bt_conectado, lv_color_hex(0xFF0000), LV_PART_MAIN | LV_STATE_DEFAULT);
-  }
-}
-
 void TestHwm(const char *taskName)
 {
   int stack_hwm_temp = uxTaskGetStackHighWaterMark(nullptr);

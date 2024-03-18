@@ -5,9 +5,11 @@
 #include "actions.h"
 
 ActionExecFunc actions[] = {
-    action_fn_conectar_wi_fi,
-    action_fn_des_conectar_wi_fi,
+    action_fn_pagina_inicial,
+    action_fn_pagina_uno,
     action_fn_presionar_bt_ok,
+    action_fn_plus,
+    action_fn_minus,
 };
 
 

@@ -2,10 +2,9 @@
 #define __CONFIG_H__
 //////////////////////////////////////////////////////////////////////////
 /*
-	ESP32 | LVGL8 | Ep 0. GFX Setup (ft. LovyanGFX)
-	Developing Embedded GUI with SquareLine Studio [2/2]
-	Configuración de lv_conf.h
-	Video Tutorial: https://youtu.be/b_4m1A3A2yw
+	ESP32 | LVGL8.3.11 | Ep 0. GFX Setup (ft. LovyanGFX)
+	Developing Embedded GUI with EEZ Studio
+	Configuración de config.h
 	Created by That Project
 */
 //////////////////////////////////////////////////////////////////////////
