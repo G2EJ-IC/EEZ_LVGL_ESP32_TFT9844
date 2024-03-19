@@ -1,10 +1,10 @@
 {
   "navigation": {
-    "selectedUserPageObject": "[Ej-EEZ_v000.eez-project]:/userPages/0",
-    "selectedActionObject": "[Ej-EEZ_v000.eez-project]:/actions/0",
-    "selectedBitmapObject": "[Ej-EEZ_v000.eez-project]:/bitmaps/0",
+    "selectedUserPageObject": "[Ej-EEZ_v000.eez-project]:/userPages/1",
+    "selectedActionObject": "[Ej-EEZ_v000.eez-project]:/actions/-1",
+    "selectedBitmapObject": "[Ej-EEZ_v000.eez-project]:/bitmaps/1",
     "subnavigationSelectedItems": {
-      "variables-tab/sub-navigation/selected-item": "Actions"
+      "variables-tab/sub-navigation/selected-item": "Global"
     }
   },
   "layoutModel": {
@@ -51,14 +51,6 @@
                 "component": "bitmaps",
                 "enableClose": false,
                 "icon": "material:image"
-              },
-              {
-                "type": "tab",
-                "id": "BREAKPOINTS_PALETTE",
-                "name": "Breakpoints",
-                "component": "breakpointsPanel",
-                "enableClose": false,
-                "icon": "svg:breakpoints_panel"
               }
             ]
           },
@@ -159,8 +151,7 @@
                       "enableClose": false,
                       "icon": "svg:hierarchy"
                     }
-                  ],
-                  "active": true
+                  ]
                 },
                 {
                   "type": "tabset",
@@ -183,27 +174,50 @@
             {
               "type": "tabset",
               "id": "EDITORS",
-              "weight": 62.78139534883721,
+              "weight": 50.051162790697674,
               "enableDeleteWhenEmpty": false,
               "enableClose": false,
               "children": [
                 {
                   "type": "tab",
-                  "id": "#5e9d8b63-c838-4845-b718-10f71239a757",
-                  "name": "Main",
+                  "id": "#a3a5c68d-2b98-4da2-a3f0-ae2ace04dfe3",
+                  "name": "Main2",
                   "component": "editor",
                   "config": {
-                    "objectPath": "[Ej-EEZ_v000.eez-project]:/userPages/0",
+                    "objectPath": "[Ej-EEZ_v000.eez-project]:/userPages/1",
                     "permanent": false
                   },
                   "icon": "svg:page"
+                },
+                {
+                  "type": "tab",
+                  "id": "#96a81633-b931-429a-876c-05bccd323350",
+                  "name": "Main3",
+                  "component": "editor",
+                  "config": {
+                    "objectPath": "[Ej-EEZ_v000.eez-project]:/userPages/2",
+                    "permanent": true
+                  },
+                  "icon": "svg:page"
+                },
+                {
+                  "type": "tab",
+                  "id": "#5e9d8b63-c838-4845-b718-10f71239a757",
+                  "name": "Main1",
+                  "component": "editor",
+                  "config": {
+                    "objectPath": "[Ej-EEZ_v000.eez-project]:/userPages/0",
+                    "permanent": true
+                  },
+                  "icon": "svg:page"
                 }
-              ]
+              ],
+              "active": true
             },
             {
               "type": "row",
               "id": "#e7ed5c9a-c993-440b-b439-06e10eb51a13",
-              "weight": 22.218604651162792,
+              "weight": 34.948837209302326,
               "children": [
                 {
                   "type": "tabset",
@@ -232,6 +246,14 @@
                       "component": "componentsPalette",
                       "enableClose": false,
                       "icon": "svg:components"
+                    },
+                    {
+                      "type": "tab",
+                      "id": "BREAKPOINTS_PALETTE",
+                      "name": "Breakpoints",
+                      "component": "breakpointsPanel",
+                      "enableClose": false,
+                      "icon": "svg:breakpoints_panel"
                     }
                   ]
                 }
@@ -928,20 +950,21 @@
     "[Ej-EEZ_v000.eez-project]:/userPages/0[flow-state]": {
       "selection": {
         "0": {
-          "1": {
+          "0": {
             "0": {
               "$selected": true
             }
           },
-          "2": {
-            "$selected": true
-          }
+          "1": {
+            "1": {}
+          },
+          "2": {}
         }
       },
       "transform": {
         "translate": {
           "x": -240,
-          "y": -60
+          "y": -160
         },
         "scale": 1
       },
@@ -981,6 +1004,164 @@
         },
         "scale": 1
       }
+    },
+    "[Ej-EEZ_v000.eez-project]:/actions/3[flow-state]": {
+      "selection": {},
+      "transform": {
+        "translate": {
+          "x": 0,
+          "y": 0
+        },
+        "scale": 1
+      }
+    },
+    "[Ej-EEZ_v000.eez-project]:/actions/4[flow-state]": {
+      "selection": {},
+      "transform": {
+        "translate": {
+          "x": 0,
+          "y": 0
+        },
+        "scale": 1
+      }
+    },
+    "[Ej-EEZ_v000.eez-project]:/userPages/1[flow-state]": {
+      "selection": {
+        "0": {
+          "0": {
+            "0": {
+              "$selected": true
+            }
+          }
+        }
+      },
+      "transform": {
+        "translate": {
+          "x": -240,
+          "y": -160
+        },
+        "scale": 1
+      },
+      "timeline": {
+        "isEditorActive": false,
+        "position": 0,
+        "secondToPx": 200,
+        "scrollLeft": 0
+      }
+    },
+    "[Ej-EEZ_v000.eez-project]:/actions/5[flow-state]": {
+      "selection": {},
+      "transform": {
+        "translate": {
+          "x": 0,
+          "y": 0
+        },
+        "scale": 1
+      }
+    },
+    "[Ej-EEZ_v000.eez-project]:/userPages/2[flow-state]": {
+      "selection": {
+        "0": {
+          "0": {
+            "0": {
+              "$selected": true
+            }
+          }
+        }
+      },
+      "transform": {
+        "translate": {
+          "x": -240,
+          "y": -160
+        },
+        "scale": 1
+      },
+      "timeline": {
+        "isEditorActive": false,
+        "position": 0,
+        "secondToPx": 200,
+        "scrollLeft": 0
+      }
+    },
+    "[Ej-EEZ_v000.eez-project]:/actions/6[flow-state]": {
+      "selection": {},
+      "transform": {
+        "translate": {
+          "x": 0,
+          "y": 0
+        },
+        "scale": 1
+      }
+    },
+    "[Ej-EEZ_v000.eez-project]:/actions/7[flow-state]": {
+      "selection": {},
+      "transform": {
+        "translate": {
+          "x": 0,
+          "y": 0
+        },
+        "scale": 1
+      }
+    },
+    "[Ej-EEZ_v000.eez-project]:/actions/8[flow-state]": {
+      "selection": {},
+      "transform": {
+        "translate": {
+          "x": 0,
+          "y": 400
+        },
+        "scale": 1
+      }
+    },
+    "[Ej-EEZ_v000.eez-project]:/actions/9[flow-state]": {
+      "selection": {},
+      "transform": {
+        "translate": {
+          "x": 0,
+          "y": 0
+        },
+        "scale": 1
+      }
+    },
+    "[Ej-EEZ_v000.eez-project]:/actions/10[flow-state]": {
+      "selection": {},
+      "transform": {
+        "translate": {
+          "x": 0,
+          "y": 0
+        },
+        "scale": 1
+      }
+    },
+    "[Ej-EEZ_v000.eez-project]:/actions/11[flow-state]": {
+      "selection": {},
+      "transform": {
+        "translate": {
+          "x": 0,
+          "y": 0
+        },
+        "scale": 1
+      }
+    },
+    "[Ej-EEZ_v000.eez-project]:/userPages/3[flow-state]": {
+      "selection": {
+        "0": {
+          "$selected": true
+        }
+      },
+      "transform": {
+        "translate": {
+          "x": -238,
+          "y": -145
+        },
+        "scale": 1
+      },
+      "timeline": {
+        "isEditorActive": false,
+        "position": 0,
+        "secondToPx": 200,
+        "scrollLeft": 0
+      }
     }
   },
   "activeOutputSection": 0,
@@ -998,7 +1179,7 @@
   "lvglPart": "MAIN",
   "lvglState": "DEFAULT",
   "lvglExpandedPropertiesGroup": [
-    "TEXT"
+    "BORDER"
   ],
   "showInactiveFlowsInDebugger": true
 }

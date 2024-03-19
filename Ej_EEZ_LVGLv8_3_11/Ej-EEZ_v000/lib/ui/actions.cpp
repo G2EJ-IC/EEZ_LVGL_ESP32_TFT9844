@@ -18,6 +18,7 @@ int	counter;
 extern void action_fn_pagina_1_uno(lv_event_t * e)
 {
 	lv_disp_load_scr(objects.main1);	// Mostrar página 1
+	
 }
 
 extern void action_fn_pagina_2_dos(lv_event_t * e)
@@ -30,19 +31,26 @@ extern void action_fn_pagina_3_tres(lv_event_t * e)
 	lv_disp_load_scr(objects.main3);	// Mostrar página 3
 }
 
-extern void action_fn_presionar_bt_pagina_1_ok(lv_event_t * e)
+
+
+extern void action_fn_pagina_1_ok(lv_event_t * e)
 {
-    lv_obj_add_flag(objects.panel_sub_pagina_1_ok, LV_OBJ_FLAG_HIDDEN);
+	std::string counter2 = "Pagina Uno (.::" + std::to_string(counter) + "::.)";
+	const char *counter3 = counter2.c_str();
+
+    static const char * btns[] ={"Aceptar", ""};
+    lv_obj_t * mbox1 = lv_msgbox_create(NULL, "Hola - G2EJ-IC", counter3, btns, true);
+	lv_obj_center(mbox1);
 }
 
-extern void action_fn_presionar_bt_pagina_2_ok(lv_event_t * e)
+extern void action_fn_pagina_2_ok(lv_event_t * e)
 {
-	lv_obj_add_flag(objects.panel_sub_pagina_2_ok, LV_OBJ_FLAG_HIDDEN);
+
 }
 
-extern void action_fn_presionar_bt_pagina_3_ok(lv_event_t * e)
+extern void action_fn_pagina_3_ok(lv_event_t * e)
 {
-	lv_obj_add_flag(objects.panel_sub_pagina_3_ok, LV_OBJ_FLAG_HIDDEN);
+
 }
 
 extern void action_fn_plus(lv_event_t * e)
@@ -56,31 +64,7 @@ extern void action_fn_plus(lv_event_t * e)
 extern void action_fn_minus(lv_event_t * e)
 {
 	int counter2 = --counter;
-	const char *counter3 = std::to_string(counter).c_str();
+	const char *counter3 = std::to_string(counter2).c_str();
 	lv_label_set_text(objects.label_counter, counter3);
 	Serial << "\nEl contador va en.: (" << counter << ").\n\n";
-}
-
-extern void action_fn_pagina_1_ok(lv_event_t * e)
-{
-	std::string counter2 = "Pagina Uno\n(.::" + std::to_string(counter) + "::.)";
-	const char *counter3 = counter2.c_str();
-	lv_label_set_text(objects.label_sub_pagina_1_ok, counter3);
-	lv_obj_clear_flag(objects.panel_sub_pagina_1_ok, LV_OBJ_FLAG_HIDDEN);
-}
-
-extern void action_fn_pagina_2_ok(lv_event_t * e)
-{
-	std::string counter2 = "Pagina Dos\n(.::" + std::to_string(counter) + "::.)";
-	const char *counter3 = counter2.c_str();
-	lv_label_set_text(objects.label_sub_pagina_1_ok, counter3);
-	lv_obj_clear_flag(objects.panel_sub_pagina_1_ok, LV_OBJ_FLAG_HIDDEN);
-}
-
-extern void action_fn_pagina_3_ok(lv_event_t * e)
-{
-	std::string counter2 = "Pagina Tres\n(.::" + std::to_string(counter) + "::.)";
-	const char *counter3 = counter2.c_str();	
-	lv_label_set_text(objects.label_sub_pagina_1_ok, counter3);
-	lv_obj_clear_flag(objects.panel_sub_pagina_1_ok, LV_OBJ_FLAG_HIDDEN);
 }

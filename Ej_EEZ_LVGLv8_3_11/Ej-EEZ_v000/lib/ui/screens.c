@@ -13,7 +13,7 @@ static void event_handler_cb_main1_bt_pagina_1(lv_event_t *e) {
     lv_event_code_t event = lv_event_get_code(e);
     void *flowState = e->user_data;
     if (event == LV_EVENT_PRESSED) {
-        action_fn_presionar_bt_pagina_1_ok(e);
+        action_fn_pagina_1_ok(e);
     }
 }
 
@@ -49,19 +49,11 @@ static void event_handler_cb_main1_bt_minus(lv_event_t *e) {
     }
 }
 
-static void event_handler_cb_main1_bt_ok(lv_event_t *e) {
-    lv_event_code_t event = lv_event_get_code(e);
-    void *flowState = e->user_data;
-    if (event == LV_EVENT_CLICKED) {
-        action_fn_presionar_bt_pagina_1_ok(e);
-    }
-}
-
 static void event_handler_cb_main2_bt_pagina_2(lv_event_t *e) {
     lv_event_code_t event = lv_event_get_code(e);
     void *flowState = e->user_data;
     if (event == LV_EVENT_PRESSED) {
-        action_fn_presionar_bt_pagina_2_ok(e);
+        action_fn_pagina_2_ok(e);
     }
 }
 
@@ -85,7 +77,7 @@ static void event_handler_cb_main3_bt_pagina_3(lv_event_t *e) {
     lv_event_code_t event = lv_event_get_code(e);
     void *flowState = e->user_data;
     if (event == LV_EVENT_PRESSED) {
-        action_fn_presionar_bt_pagina_3_ok(e);
+        action_fn_pagina_3_ok(e);
     }
 }
 
@@ -288,52 +280,6 @@ void create_screen_main1() {
                             lv_img_set_src(obj, &img_g2ej);
                             lv_obj_add_flag(obj, LV_OBJ_FLAG_ADV_HITTEST);
                             lv_obj_clear_flag(obj, LV_OBJ_FLAG_SCROLLABLE);
-                        }
-                    }
-                }
-            }
-        }
-        {
-            // PanelSubPagina_1_Ok
-            lv_obj_t *obj = lv_obj_create(parent_obj);
-            objects.panel_sub_pagina_1_ok = obj;
-            lv_obj_set_pos(obj, 56, 138);
-            lv_obj_set_size(obj, LV_PCT(75), LV_PCT(53));
-            lv_obj_clear_flag(obj, LV_OBJ_FLAG_CLICKABLE|LV_OBJ_FLAG_SCROLLABLE);
-            lv_obj_set_style_bg_color(obj, lv_color_hex(0xffc8c8c8), LV_PART_MAIN | LV_STATE_DEFAULT);
-            lv_obj_set_style_border_color(obj, lv_color_hex(0xff000000), LV_PART_MAIN | LV_STATE_DEFAULT);
-            lv_obj_set_style_border_width(obj, 2, LV_PART_MAIN | LV_STATE_DEFAULT);
-            lv_obj_set_style_border_color(obj, lv_color_hex(0xff000000), LV_PART_SCROLLBAR | LV_STATE_DEFAULT);
-            lv_obj_set_style_border_width(obj, 2, LV_PART_SCROLLBAR | LV_STATE_DEFAULT);
-            {
-                lv_obj_t *parent_obj = obj;
-                {
-                    // LabelSubPagina_1_Ok
-                    lv_obj_t *obj = lv_label_create(parent_obj);
-                    objects.label_sub_pagina_1_ok = obj;
-                    lv_obj_set_pos(obj, 0, 0);
-                    lv_obj_set_size(obj, LV_PCT(100), LV_PCT(45));
-                    lv_label_set_text(obj, "Contador\n(.:: 0 ::.)");
-                    lv_obj_set_style_text_align(obj, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
-                    lv_obj_set_style_text_font(obj, &lv_font_montserrat_20, LV_PART_MAIN | LV_STATE_DEFAULT);
-                }
-                {
-                    // Bt_Ok
-                    lv_obj_t *obj = lv_btn_create(parent_obj);
-                    objects.bt_ok = obj;
-                    lv_obj_set_pos(obj, 81, 93);
-                    lv_obj_set_size(obj, LV_PCT(50), LV_PCT(25));
-                    lv_obj_add_event_cb(obj, event_handler_cb_main1_bt_ok, LV_EVENT_ALL, flowState);
-                    lv_obj_add_flag(obj, LV_OBJ_FLAG_SCROLL_ON_FOCUS);
-                    lv_obj_clear_flag(obj, LV_OBJ_FLAG_SCROLLABLE);
-                    {
-                        lv_obj_t *parent_obj = obj;
-                        {
-                            lv_obj_t *obj = lv_label_create(parent_obj);
-                            lv_obj_set_pos(obj, 0, -2);
-                            lv_obj_set_size(obj, LV_PCT(100), LV_PCT(140));
-                            lv_label_set_text(obj, "Aceptar");
-                            lv_obj_set_style_text_align(obj, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
                         }
                     }
                 }
