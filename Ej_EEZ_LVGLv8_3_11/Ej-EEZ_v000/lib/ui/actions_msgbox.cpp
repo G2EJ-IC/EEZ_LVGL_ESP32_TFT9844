@@ -13,7 +13,7 @@ static void event_cb(lv_event_t * e)
 
 void lv_example_msgbox_1(int counter)
 {
-    static const char * btns[] = {"Apply", "Close", ""};
+    static const char * btns[] = {"Aceptar", ""};
     std::string counter2 = "Pagina Uno (.::" + std::to_string(counter) + "::.)";
 	const char *counter3 = counter2.c_str();
 
