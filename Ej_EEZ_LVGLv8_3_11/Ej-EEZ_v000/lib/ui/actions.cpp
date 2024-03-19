@@ -12,13 +12,13 @@ inline Print &operator <<(Print &obj, T arg) {
 
 #include "actions.h"
 #include "screens.h"
+#include "actions_msgbox.h"
 
-int	counter;
+int counter;
 
 extern void action_fn_pagina_1_uno(lv_event_t * e)
 {
-	lv_disp_load_scr(objects.main1);	// Mostrar página 1
-	
+	lv_disp_load_scr(objects.main1);	// Mostrar página 1	
 }
 
 extern void action_fn_pagina_2_dos(lv_event_t * e)
@@ -31,16 +31,9 @@ extern void action_fn_pagina_3_tres(lv_event_t * e)
 	lv_disp_load_scr(objects.main3);	// Mostrar página 3
 }
 
-
-
 extern void action_fn_pagina_1_ok(lv_event_t * e)
 {
-	std::string counter2 = "Pagina Uno (.::" + std::to_string(counter) + "::.)";
-	const char *counter3 = counter2.c_str();
-
-    static const char * btns[] ={"Aceptar", ""};
-    lv_obj_t * mbox1 = lv_msgbox_create(NULL, "Hola - G2EJ-IC", counter3, btns, true);
-	lv_obj_center(mbox1);
+	lv_example_msgbox_1(counter);
 }
 
 extern void action_fn_pagina_2_ok(lv_event_t * e)
