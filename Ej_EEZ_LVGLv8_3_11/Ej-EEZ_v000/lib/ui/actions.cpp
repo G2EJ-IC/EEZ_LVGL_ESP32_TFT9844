@@ -18,32 +18,35 @@ int counter;
 
 extern void action_fn_pagina_1_uno(lv_event_t * e)
 {
-	lv_disp_load_scr(objects.main1);	// Mostrar página 1	
+	// lv_disp_load_scr(objects.main1);	// Mostrar página 1
+	lv_scr_load(objects.main1);
 }
 
 extern void action_fn_pagina_2_dos(lv_event_t * e)
 {
-	lv_disp_load_scr(objects.main2);	// Mostrar página 2
+	// lv_disp_load_scr(objects.main2);	// Mostrar página 2
+	lv_scr_load(objects.main2);
 }
 
 extern void action_fn_pagina_3_tres(lv_event_t * e)
 {	
-	lv_disp_load_scr(objects.main3);	// Mostrar página 3
+	// lv_disp_load_scr(objects.main3);	// Mostrar página 3
+	lv_scr_load(objects.main3);
 }
 
 extern void action_fn_pagina_1_ok(lv_event_t * e)
 {
-	lv_example_msgbox_1(counter);
+	lv_msgbox_1("- Pag. 1 -", counter);
 }
 
 extern void action_fn_pagina_2_ok(lv_event_t * e)
 {
-
+	lv_msgbox_1("- Pag. 2 -", counter);
 }
 
 extern void action_fn_pagina_3_ok(lv_event_t * e)
 {
-
+	lv_msgbox_1("- Pag. 3 -", counter);
 }
 
 extern void action_fn_plus(lv_event_t * e)
