@@ -1,7 +1,7 @@
 {
   "navigation": {
     "selectedUserPageObject": "[Ej-EEZ_v000.eez-project]:/userPages/1",
-    "selectedActionObject": "[Ej-EEZ_v000.eez-project]:/actions/-1",
+    "selectedActionObject": "[Ej-EEZ_v000.eez-project]:/actions/3",
     "selectedBitmapObject": "[Ej-EEZ_v000.eez-project]:/bitmaps/1",
     "subnavigationSelectedItems": {
       "variables-tab/sub-navigation/selected-item": "Global"
@@ -56,6 +56,8 @@
           },
           {
             "type": "border",
+            "selected": 3,
+            "size": 100.5,
             "location": "bottom",
             "children": [
               {
@@ -108,7 +110,6 @@
                   "type": "tabset",
                   "id": "#fcfea1b2-841f-44e1-a289-2af03a6c1131",
                   "weight": 1,
-                  "selected": 2,
                   "enableClose": false,
                   "children": [
                     {
@@ -175,9 +176,22 @@
               "type": "tabset",
               "id": "EDITORS",
               "weight": 50.051162790697674,
+              "selected": 1,
               "enableDeleteWhenEmpty": false,
               "enableClose": false,
               "children": [
+                {
+                  "type": "tab",
+                  "id": "#abe27361-9645-491a-b6b7-9b9ce844c73a",
+                  "name": "Settings",
+                  "component": "editor",
+                  "config": {
+                    "objectPath": "[Ej-EEZ_v000.eez-project]:/settings",
+                    "subObjectPath": "[Ej-EEZ_v000.eez-project]:/settings",
+                    "permanent": false
+                  },
+                  "icon": "material:settings"
+                },
                 {
                   "type": "tab",
                   "id": "#a3a5c68d-2b98-4da2-a3f0-ae2ace04dfe3",
@@ -211,8 +225,7 @@
                   },
                   "icon": "svg:page"
                 }
-              ],
-              "active": true
+              ]
             },
             {
               "type": "row",
@@ -232,7 +245,8 @@
                       "enableClose": false,
                       "icon": "svg:properties"
                     }
-                  ]
+                  ],
+                  "active": true
                 },
                 {
                   "type": "tabset",
@@ -1029,8 +1043,11 @@
       "selection": {
         "0": {
           "0": {
-            "0": {
-              "$selected": true
+            "0": {},
+            "2": {
+              "0": {
+                "$selected": true
+              }
             }
           }
         }
@@ -1179,7 +1196,8 @@
   "lvglPart": "MAIN",
   "lvglState": "DEFAULT",
   "lvglExpandedPropertiesGroup": [
-    "BORDER"
+    "MARGIN",
+    "BACKGROUND"
   ],
   "showInactiveFlowsInDebugger": true
 }
