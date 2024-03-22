@@ -1,6 +1,7 @@
 #include <Arduino.h>
 #include <lvgl.h>
 #include "config.h"
+#include <SPI.h>
 #include "TFT_eSPI.h"
 #include "display_service.h"
 #include "tp_service.h"
@@ -18,8 +19,8 @@ display_service::~display_service() {}
 static const uint16_t screenWidth = 480;
 static const uint16_t screenHeight = 320;
 static const uint16_t N = 10u; // N = {10, 12, 16, 20, 24, 25, 32}
-extern TFT_eSPI tft = TFT_eSPI(); /* TFT instance */
-// TFT_eSPI tft = TFT_eSPI(screenWidth, screenHeight); /* TFT instance */
+// extern TFT_eSPI tft = TFT_eSPI(); /* TFT instance */
+extern TFT_eSPI tft = TFT_eSPI(screenWidth, screenHeight); /* TFT instance */
 extern tp_service tp; // load tp service
 
 static lv_disp_draw_buf_t draw_buf;
@@ -61,9 +62,10 @@ void ICACHE_FLASH_ATTR display_service::touch_setup()
 
     //************************************************************************************************
     // tft.setBrightness(255);
-    // uint16_t calData[] = { 120, 3120, 170, 170, 4880, 3030, 4770, 50};
-    // uint16_t calData[] = {239, 3926, 233, 265, 3856, 3896, 3714, 308};
-    // tft.setTouchCalibrate(calData);
+    // uint16_t calData[5] = {X0, X1, Y0, Y1, rotate/invert_x/invert_y};
+
+    uint16_t calData[5] = {235, 3604, 268, 3394, 1};
+    tft.setTouch(calData);
     // lv_init();
     //************************************************************************************************
 
