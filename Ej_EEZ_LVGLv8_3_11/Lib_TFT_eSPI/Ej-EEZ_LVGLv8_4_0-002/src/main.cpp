@@ -1,7 +1,7 @@
 #include <lvgl.h>
 #include "soc/timer_group_struct.h"  //for wdt
 #include "soc/timer_group_reg.h"     //for wdt
-#include "LovyanGFX_Class_ILI9488.h"
+#include "TFT_eSPI.h"
 #include <ui.h>
 #include "display_service.h"
 #include "io_service.h"

@@ -1,4 +1,5 @@
 #include <Arduino.h>
+#include "config.h"
 #include "io_service.h"
 #include "screens.h"
 
