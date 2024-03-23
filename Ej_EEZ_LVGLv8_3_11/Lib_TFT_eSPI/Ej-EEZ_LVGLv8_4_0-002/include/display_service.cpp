@@ -64,7 +64,7 @@ void ICACHE_FLASH_ATTR display_service::touch_setup()
     // tft.setBrightness(255);
     // uint16_t calData[5] = {X0, X1, Y0, Y1, rotate/invert_x/invert_y};
 
-    uint16_t calData[5] = {235, 3604, 268, 3394, 1};
+    uint16_t calData[5] = {209, 3656, 209, 3499, 1}; //
     tft.setTouch(calData);
     // lv_init();
     //************************************************************************************************

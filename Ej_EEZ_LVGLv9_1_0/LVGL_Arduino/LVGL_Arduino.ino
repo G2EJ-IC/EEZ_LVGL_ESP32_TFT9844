@@ -78,7 +78,7 @@ void setup()
     lv_init();
 
     /*Set a tick source so that LVGL will know how much time elapsed. */
-    lv_tick_set_cb(millis);
+    lv_tick_set_cb((lv_tick_get_cb_t)millis());
 
     /* register print function for debugging */
 #if LV_USE_LOG != 0
