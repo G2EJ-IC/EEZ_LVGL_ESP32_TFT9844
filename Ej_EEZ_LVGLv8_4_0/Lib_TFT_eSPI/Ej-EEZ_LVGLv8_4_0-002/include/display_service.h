@@ -14,6 +14,10 @@ private:
     static void IRAM_ATTR my_disp_flush(lv_disp_drv_t *disp, const lv_area_t *area, lv_color_t *color_p);
     static void IRAM_ATTR my_touchpad_read(lv_indev_drv_t *indev_driver, lv_indev_data_t *data);
 
+    // friend class display_service;
+    friend class io_service;
+    friend class tp_service;
+
 public:
     display_service();
     ~display_service();

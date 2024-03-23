@@ -41,7 +41,6 @@ void TestHwm(const char *);
 //************************************************************************************************
 
 #define LVGL_REFRESH_TIME (5u) // 5 milliseconds
-#define PinLED 2               // LED_BUILTIN
 
 unsigned long asyncDelay0 = 0;
 unsigned long asyncDelay1 = 0;
@@ -64,9 +63,6 @@ void my_print(const char *buf)
 
 void setup()
 {
-  Serial.begin(115200);
-  pinMode(PinLED, OUTPUT);
-  digitalWrite(PinLED, !digitalRead(PinLED));
   /************************************FreeRTOS*******************************************/
   BaseType_t taskCreationResult;  
   taskCreationResult = xTaskCreatePinnedToCore(
@@ -157,7 +153,7 @@ void loop1(void *parameter)
     if (millis() > asyncDelay1)
     {
       asyncDelay1 += delayLength;
-      digitalWrite(PinLED, !digitalRead(PinLED));
+      io.ParpadeoLED();
       TestHwm("loop1");
     }
   }
@@ -178,15 +174,24 @@ void loop2(void *parameter)
 
 void loop3(void *parameter)
 {
+  tp.setup();
   for (;;)
   {
     loop_Task3();
-    vTaskDelay(pdMS_TO_TICKS(5000));
-    TestHwm("loop3");    
+    if (millis() > asyncDelay3)
+    {
+      asyncDelay3 += delayLength;
+      TestHwm("loop3");
+    }
   }
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////
+/**
+ * @brief Breve descripción.
+ * @param Parámetros.
+ * @return Salida. 
+ */
 void TestHwm(const char *taskName)
 {
   int stack_hwm_temp = uxTaskGetStackHighWaterMark(nullptr);

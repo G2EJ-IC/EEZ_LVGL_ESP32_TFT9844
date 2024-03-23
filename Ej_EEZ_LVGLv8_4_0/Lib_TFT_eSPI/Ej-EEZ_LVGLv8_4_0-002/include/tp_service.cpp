@@ -9,9 +9,9 @@ tp_service::~tp_service() {}
 void ICACHE_FLASH_ATTR tp_service::setup()
 {
 
-} // end io setup
+} // end tp setup
 
 void ICACHE_FLASH_ATTR tp_service::loop()
 {
 
-} // end io loop
+} // end tp loop

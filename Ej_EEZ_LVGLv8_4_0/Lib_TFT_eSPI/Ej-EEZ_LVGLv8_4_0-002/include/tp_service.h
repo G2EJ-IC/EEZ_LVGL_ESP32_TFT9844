@@ -8,7 +8,9 @@
 class tp_service
 {
 private:
-    // static void IRAM_ATTR my_touchpad_read(lv_indev_drv_t *indev_driver, lv_indev_data_t *data);
+    friend class display_service;
+    friend class io_service;
+    // friend class tp_service;
 
 public:
     tp_service();
