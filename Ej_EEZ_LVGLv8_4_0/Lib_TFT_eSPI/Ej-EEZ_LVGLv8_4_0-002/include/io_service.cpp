@@ -29,3 +29,18 @@ void ICACHE_FLASH_ATTR io_service::loop()
 void io_service::ParpadeoLED(void) {
     digitalWrite(PinLED, !digitalRead(PinLED));
 }
+
+///////////////////////////////////////////////////////////////////////////////////////////
+/**
+ * @brief Breve descripción.
+ * @param Parámetros.
+ * @return Salida. 
+ */
+void ICACHE_FLASH_ATTR io_service::TestHwm(const char *taskName)
+{
+  int stack_hwm_temp = uxTaskGetStackHighWaterMark(nullptr);
+  Serial.println("\n================================================================================\n");
+  Serial.printf("%s Tiene un máximo en la Pila (High Water Mark) de.: %u\n", taskName, stack_hwm_temp);
+  Serial.println("En núcleo -> " + String(xPortGetCoreID()));
+  Serial.println("\n================================================================================\n");
+}

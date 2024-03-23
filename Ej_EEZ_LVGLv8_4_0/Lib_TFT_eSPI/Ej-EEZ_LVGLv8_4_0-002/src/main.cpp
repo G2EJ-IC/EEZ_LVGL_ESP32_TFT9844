@@ -1,12 +1,13 @@
-#include <lvgl.h>
+#include "Arduino.h"
+// #include <lvgl.h>
 #include "soc/timer_group_struct.h"  //for wdt
 #include "soc/timer_group_reg.h"     //for wdt
-#include "TFT_eSPI.h"
-#include <ui.h>
+// #include "TFT_eSPI.h"
+// #include <ui.h>
 #include "display_service.h"
 #include "io_service.h"
 #include "tp_service.h"
-#include "screens.h"
+// #include "screens.h"
 
 TaskHandle_t Task1 = NULL;
 TaskHandle_t Task2 = NULL;
@@ -37,33 +38,18 @@ void loop1(void *);
 void loop2(void *);
 void loop3(void *);
 //************************************************************************************************
-void TestHwm(const char *);
-//************************************************************************************************
 
 #define LVGL_REFRESH_TIME (5u) // 5 milliseconds
 
 unsigned long asyncDelay0 = 0;
-unsigned long asyncDelay1 = 0;
-unsigned long asyncDelay2 = 0;
-unsigned long asyncDelay3 = 0;
-int delayLength = 5000;
-static uint32_t lvgl_refresh_timestamp = 5u;
-
-// Temporizador para apagar la pantalla después de un minuto de inactividad
-lv_timer_t *screen_off_timer;
-
-#if LV_USE_LOG != 0
-/* Serial debugging */
-void my_print(const char *buf)
-{
-  Serial.printf(buf);
-  Serial.flush();
-}
-#endif
+int delayLength0 = 5000;
 
 void setup()
 {
-  /************************************FreeRTOS*******************************************/
+  // Segundo Siclo en el Núcleo Secundario.
+  // Núcleo Principal  -> 1. APP
+  // Núcleo Secundario -> 0. PRO
+  /************************************Begin FreeRTOS*******************************************/
   BaseType_t taskCreationResult;  
   taskCreationResult = xTaskCreatePinnedToCore(
       loop1,
@@ -79,6 +65,7 @@ void setup()
     while (true)
       ;
   }
+  
   taskCreationResult = xTaskCreatePinnedToCore(
       loop2,
       "Task_2",
@@ -93,6 +80,7 @@ void setup()
     while (true)
       ;
   }
+
   taskCreationResult = xTaskCreatePinnedToCore(
       loop3,
       "Task_3",
@@ -114,7 +102,7 @@ void setup()
     while (true)
       ;
   }
-  /************************************End FreeRTOS***************************************/
+  /******************************************End FreeRTOS***************************************/
 }
 
 void loop()
@@ -122,8 +110,9 @@ void loop()
   feedTheDog();
   if (millis() > asyncDelay0)
   {
-    asyncDelay0 += delayLength;
-    TestHwm("loop");
+    asyncDelay0 += delayLength0;
+    io.ParpadeoLED();
+    io.TestHwm("loop");
   }
 }
 //************************************************************************************************
@@ -141,62 +130,51 @@ inline void loop_Task2(void)
 inline void loop_Task3(void)
 {
   tp.loop();
-  Serial.println("\nloop_Task3 Vacio.");
 }
 
 void loop1(void *parameter)
 {
+  int delayLength1 = 5000;
+  unsigned long asyncDelay1 = 0;
   io.setup();
   for (;;)
   {
     loop_Task1();
     if (millis() > asyncDelay1)
     {
-      asyncDelay1 += delayLength;
-      io.ParpadeoLED();
-      TestHwm("loop1");
+      asyncDelay1 += delayLength1;
+      io.TestHwm("loop1");
     }
   }
 }
 void loop2(void *parameter)
 {
+  int delayLength2 = 5000;
+  unsigned long asyncDelay2 = 0;
   display.setup();
   for (;;)
   {
     loop_Task2();
     if (millis() > asyncDelay2)
     {
-      asyncDelay2 += delayLength;
-      TestHwm("loop2");
+      asyncDelay2 += delayLength2;
+      io.TestHwm("loop2");
     }
   }
 }
 
 void loop3(void *parameter)
 {
+  int delayLength3 = 5000;
+  unsigned long asyncDelay3 = 0;
   tp.setup();
   for (;;)
   {
     loop_Task3();
     if (millis() > asyncDelay3)
     {
-      asyncDelay3 += delayLength;
-      TestHwm("loop3");
+      asyncDelay3 += delayLength3;
+      io.TestHwm("loop3");
     }
   }
-}
-
-///////////////////////////////////////////////////////////////////////////////////////////
-/**
- * @brief Breve descripción.
- * @param Parámetros.
- * @return Salida. 
- */
-void TestHwm(const char *taskName)
-{
-  int stack_hwm_temp = uxTaskGetStackHighWaterMark(nullptr);
-  Serial.println("\n================================================================================\n");
-  Serial.printf("%s Tiene un máximo en la Pila (High Water Mark) de.: %u\n", taskName, stack_hwm_temp);
-  Serial.println("En núcleo -> " + String(xPortGetCoreID()));
-  Serial.println("\n================================================================================\n");
 }

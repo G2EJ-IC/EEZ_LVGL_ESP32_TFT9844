@@ -2,7 +2,7 @@
 #include <lvgl.h>
 #include "config.h"
 #include <SPI.h>
-#include "TFT_eSPI.h"
+#include <TFT_eSPI.h>
 #include "display_service.h"
 #include "tp_service.h"
 #include "esp_freertos_hooks.h"
@@ -11,16 +11,13 @@
 display_service::display_service() {}
 display_service::~display_service() {}
 
-#define DISP_STATE_INIT_WAIT_TIME (2000u)
-#define DISP_STATE_WIFI_SSID_SCANNED_DONE_TIME (1000u)
-#define WIFI_CONNECT_MAX_RETRY (5u)
-
 /*Change to your screen resolution*/
 static const uint16_t screenWidth = 480;
 static const uint16_t screenHeight = 320;
 static const uint16_t N = 10u; // N = {10, 12, 16, 20, 24, 25, 32}
+
 // extern TFT_eSPI tft = TFT_eSPI(); /* TFT instance */
-extern TFT_eSPI tft = TFT_eSPI(screenWidth, screenHeight); /* TFT instance */
+TFT_eSPI tft = TFT_eSPI(screenWidth, screenHeight); /* TFT instance */
 extern tp_service tp; // load tp service
 
 static lv_disp_draw_buf_t draw_buf;
@@ -101,8 +98,6 @@ void ICACHE_FLASH_ATTR display_service::touch_setup()
 void IRAM_ATTR display_service::lv_main()
 {
     Serial.print(F("[INFO] LV GUI started.\n"));
-    // header_create();
-    // body_create();
 }
 
 void IRAM_ATTR display_service::my_disp_flush(lv_disp_drv_t *disp, const lv_area_t *area, lv_color_t *color_p)
@@ -120,7 +115,6 @@ void IRAM_ATTR display_service::my_touchpad_read(lv_indev_drv_t *indev_driver, l
 {
     uint16_t touchX = 0, touchY = 0;
 
-    // bool touched = false;//tft.getTouch(&touchX, &touchY, 600);
     bool touched = tft.getTouch(&touchX, &touchY, 600);
 
     if (!touched)
