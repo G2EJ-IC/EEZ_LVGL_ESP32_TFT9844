@@ -1,6 +1,12 @@
 #include <Arduino.h>
+#include "display_service.h"
 #include "config.h"
 #include "tp_service.h"
+#include "DateTime_AIoT.h"
+#include "io_service.h"
+
+dhms_AIoT DateTimeAhora;       // load DateTime
+io_service ioAhora;            // load IO control service
 
 tp_service::tp_service() {}
 tp_service::~tp_service() {}
@@ -29,7 +35,10 @@ void ICACHE_FLASH_ATTR tp_service::lv_no_sleep(uint32_t lv_sleep)
     else
     {
         Serial.println();
-        Serial.print(lv_disp_get_inactive_time(NULL));
+        // Serial.print(lv_disp_get_inactive_time(NULL));
+        uint32_t Ahora = lv_disp_get_inactive_time(NULL);
+        String DHMS = DateTimeAhora.DHMS_AIoT((uint64_t)(Ahora));
+        Serial.printf("%u mSeg - %s",Ahora, DHMS);
         digitalWrite(PIN_BL, LOW);
         Serial.println();
     }

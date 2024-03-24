@@ -33,16 +33,16 @@ String dhms_AIoT::DHMS_AIoT(unsigned long long mSegT) {
   int SEG = SegT;
 
   if (DIA == 0 && HORA == 0 && MINUTO == 0) {
-    sprintf(DHMS,"%.2d.%.3ds", 
+    sprintf(DHMS,"%.2d.%.2ds", 
       SEG, SubSEG); 
   } else if (DIA == 0 && HORA == 0) {
-    sprintf(DHMS,"%.2dm %.2d.%.3ds", 
+    sprintf(DHMS,"%.2dm %.2d.%.2ds", 
       MINUTO, SEG, SubSEG); 
   } else if (DIA == 0) {
-    sprintf(DHMS,"%.2dh %.2dm %.2d.%.3ds",
+    sprintf(DHMS,"%.2dh %.2dm %.2d.%.2ds",
       HORA, MINUTO, SEG, SubSEG); 
   } else {
-    sprintf(DHMS,"%dd %.2dh %.2dm %.2d.%.3ds",
+    sprintf(DHMS,"%dd %.2dh %.2dm %.2d.%.2ds",
       DIA, HORA, MINUTO, SEG, SubSEG); 
   }
 
