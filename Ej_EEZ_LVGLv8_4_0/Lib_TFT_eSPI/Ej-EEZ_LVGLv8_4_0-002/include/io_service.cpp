@@ -4,10 +4,9 @@
 #include "config.h"
 #include "io_service.h"
 #include "screens.h"
-// #include "DateTime_AIoT.h"
+#include "DateTime_AIoT.h"
 
-#define PinLED 2               // LED_BUILTIN
-// dhms_AIoT DateTime;       // load DateTime
+dhms_AIoT DateTime;       // load DateTime
 
 io_service::io_service() {}
 io_service::~io_service() {}
@@ -88,4 +87,12 @@ void ICACHE_FLASH_ATTR io_service::memoria_ESP(void)
   log_d("Free Flash: %d", ESP.getFreeSketchSpace());
   Serial.println("\n================================================================================");
   Serial.println("\n\n\n");
+}
+
+void ICACHE_FLASH_ATTR io_service::cronometro(uint32_t Ahora)
+{
+    String DHMS = DateTime.DHMS_AIoT((uint64_t)(Ahora));
+    lv_label_set_text(objects.label_dhms_1, String(DHMS).c_str());
+    lv_label_set_text(objects.label_dhms_2, String(DHMS).c_str());
+    lv_label_set_text(objects.label_dhms_3, String(DHMS).c_str());
 }

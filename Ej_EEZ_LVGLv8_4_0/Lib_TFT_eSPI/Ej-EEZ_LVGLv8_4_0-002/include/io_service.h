@@ -19,7 +19,8 @@ public:
     void ICACHE_FLASH_ATTR memoria_ESP(void);
     void ICACHE_FLASH_ATTR feedTheDog(void);
     void ICACHE_FLASH_ATTR setup();
-    void ICACHE_FLASH_ATTR loop();    
+    void ICACHE_FLASH_ATTR loop();
+    void ICACHE_FLASH_ATTR cronometro(uint32_t); 
 };
 
 #endif // __IO_SERVICE_H__

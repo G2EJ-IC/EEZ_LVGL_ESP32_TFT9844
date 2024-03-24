@@ -39,7 +39,8 @@
 #define PIN_BUSY	-1	//	cfg.pin_busy = 	-1;
 #define PIN_INT		-1	//	cfg.pin_int =	-1;
 
-#define TOUCH_CS 21 // Pin CS del panel táctil
+#define TOUCH_CS 	21 	// Pin CS del panel táctil
+#define PinLED 		2	// LED_BUILTIN
 
 #elif defined(HMI_ESP32_4827S043)
 // Pines TFT HMI ESP32 4827S043 - ESP32-S3 480x320
@@ -56,6 +57,7 @@
 
 #define PIN_BUSY	-1	//	cfg.pin_busy = 	-1;
 #define PIN_INT		-1	//	cfg.pin_int =	-1;
+#define PinLED 2          // LED_BUILTIN
 
 #endif
 //----------------------------end tp configaction
