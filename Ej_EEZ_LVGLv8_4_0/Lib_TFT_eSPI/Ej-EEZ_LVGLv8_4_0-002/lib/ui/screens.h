@@ -11,6 +11,9 @@ typedef struct _objects_t {
     lv_obj_t *main1;
     lv_obj_t *main2;
     lv_obj_t *main3;
+    lv_obj_t *bt_dhms_1;
+    lv_obj_t *bt_dhms_2;
+    lv_obj_t *bt_dhms_3;
     lv_obj_t *bt_minus;
     lv_obj_t *bt_pagina_1;
     lv_obj_t *bt_pagina_2;
@@ -23,6 +26,9 @@ typedef struct _objects_t {
     lv_obj_t *bt_pagina_uno_l_1;
     lv_obj_t *bt_plus;
     lv_obj_t *label_counter;
+    lv_obj_t *label_dhms_1;
+    lv_obj_t *label_dhms_2;
+    lv_obj_t *label_dhms_3;
     lv_obj_t *panel_main1;
     lv_obj_t *panel_main1_1;
     lv_obj_t *panel_main1_2;

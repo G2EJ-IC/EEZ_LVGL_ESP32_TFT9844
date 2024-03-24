@@ -29,6 +29,7 @@ int delayLength0 = 3000;
 
 void ICACHE_FLASH_ATTR setup()
 {
+  io.memoria_ESP();
   // Segundo Siclo en el Núcleo Secundario.
   // Núcleo Principal  -> 1. APP
   // Núcleo Secundario -> 0. PRO
@@ -39,7 +40,7 @@ void ICACHE_FLASH_ATTR setup()
       "Task_1",
       11264,
       NULL,
-      1,
+      3,
       &Task1,
       0);
   if (taskCreationResult != pdPASS)
@@ -52,9 +53,9 @@ void ICACHE_FLASH_ATTR setup()
   taskCreationResult = xTaskCreatePinnedToCore(
       loop2,
       "Task_2",
-      27648,
+      31744,
       NULL,
-      1,
+      2,
       &Task2,
       1);
   if (taskCreationResult != pdPASS)
@@ -86,17 +87,21 @@ void ICACHE_FLASH_ATTR setup()
       ;
   }
   /******************************************End FreeRTOS***************************************/
+  delay(2000);
+  lv_task_handler();
 }
 
 void ICACHE_FLASH_ATTR loop()
 {
   io.feedTheDog();
+  tp.lv_no_sleep(60);
   if (millis() > asyncDelay0)
   {
     asyncDelay0 += delayLength0;
     io.ParpadeoLED();
-    io.TestHWM("loop");
+    io.TestHWM("loop", asyncDelay0);
   }
+  
 }
 //************************************************************************************************
 
@@ -127,7 +132,7 @@ void ICACHE_FLASH_ATTR loop1(void *parameter)
     if (millis() > asyncDelay1)
     {
       asyncDelay1 += delayLength1;
-      io.TestHWM("loop1");
+      io.TestHWM("loop1", asyncDelay1);
     }
   }
 }
@@ -143,7 +148,7 @@ void ICACHE_FLASH_ATTR loop2(void *parameter)
     if (millis() > asyncDelay2)
     {
       asyncDelay2 += delayLength2;
-      io.TestHWM("loop2");
+      io.TestHWM("loop2", asyncDelay2);
     }
   }
 }
@@ -160,7 +165,7 @@ void ICACHE_FLASH_ATTR loop3(void *parameter)
     if (millis() > asyncDelay3)
     {
       asyncDelay3 += delayLength3;
-      // io.TestHWM("loop3");
+      io.TestHWM("loop3", asyncDelay3);
     }
   }
 }

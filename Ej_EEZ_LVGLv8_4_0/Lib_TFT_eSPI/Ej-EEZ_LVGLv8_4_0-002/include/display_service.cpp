@@ -37,12 +37,7 @@ void ICACHE_FLASH_ATTR display_service::lv_setup()
     String LVGL_Arduino = "\n\nHello Arduino! ";
     LVGL_Arduino += String('V') + lv_version_major() + "." + lv_version_minor() + "." + lv_version_patch();
     Serial.println(LVGL_Arduino);
-    Serial.println("I am LVGL_Arduino");
-
-    log_d("Total heap: %d", ESP.getHeapSize());
-    log_d("Free heap: %d", ESP.getFreeHeap());
-    log_d("Total PSRAM: %d", ESP.getPsramSize());
-    log_d("Free PSRAM: %d", ESP.getFreePsram());
+    Serial.println("I am LVGL_Arduino\n");
 
 #if LV_USE_LOG != 0
     /* Serial debugging */
@@ -102,7 +97,7 @@ void ICACHE_FLASH_ATTR display_service::touch_setup()
 
 void IRAM_ATTR display_service::lv_main()
 {
-    Serial.print(F("\n[INFO] LV GUI started.\n"));
+    Serial.print(F("\n\n[INFO] LV GUI started.\n"));
 }
 
 void IRAM_ATTR display_service::my_disp_flush(lv_disp_drv_t *disp, const lv_area_t *area, lv_color_t *color_p)
@@ -146,6 +141,7 @@ void IRAM_ATTR display_service::my_touchpad_read(lv_indev_drv_t *indev_driver, l
 void ICACHE_FLASH_ATTR display_service::setup()
 {
     lv_setup();
+    lv_task_handler();
     // esp_register_freertos_tick_hook(lv_tick_task);
 
     Serial.print(F("[INFO] Display GUI setup finished! \n"));
@@ -158,4 +154,5 @@ void IRAM_ATTR display_service::loop()
     lv_timer_handler(); /* let the GUI do its work */
     // ui_tick();
     vTaskDelay(pdMS_TO_TICKS(5)); // delay( 5 );
+    
 } // end loop
