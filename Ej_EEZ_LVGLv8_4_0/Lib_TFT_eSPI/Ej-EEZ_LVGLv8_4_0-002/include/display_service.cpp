@@ -34,7 +34,7 @@ void ICACHE_FLASH_ATTR display_service::lv_setup()
     lv_init();
     tft.begin();                /* TFT init */
     tft.setRotation(ROTATION);  /* Landscape orientation, flipped */
-    String LVGL_Arduino = "Hello Arduino! ";
+    String LVGL_Arduino = "\n\nHello Arduino! ";
     LVGL_Arduino += String('V') + lv_version_major() + "." + lv_version_minor() + "." + lv_version_patch();
     Serial.println(LVGL_Arduino);
     Serial.println("I am LVGL_Arduino");
@@ -97,7 +97,7 @@ void ICACHE_FLASH_ATTR display_service::touch_setup()
 
 void IRAM_ATTR display_service::lv_main()
 {
-    Serial.print(F("[INFO] LV GUI started.\n"));
+    Serial.print(F("\n[INFO] LV GUI started.\n"));
 }
 
 void IRAM_ATTR display_service::my_disp_flush(lv_disp_drv_t *disp, const lv_area_t *area, lv_color_t *color_p)

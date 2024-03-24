@@ -15,7 +15,8 @@ public:
     ~io_service();
 
     void ICACHE_FLASH_ATTR ParpadeoLED(void);
-    void ICACHE_FLASH_ATTR TestHwm(const char *);
+    void ICACHE_FLASH_ATTR TestHWM(const char *);
+    void ICACHE_FLASH_ATTR feedTheDog();
     void ICACHE_FLASH_ATTR setup();
     void ICACHE_FLASH_ATTR loop();    
 };

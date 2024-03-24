@@ -8,6 +8,8 @@
 class tp_service
 {
 private:
+    inline void lv_no_sleep(uint32_t);
+
     friend class display_service;
     friend class io_service;
     // friend class tp_service;
