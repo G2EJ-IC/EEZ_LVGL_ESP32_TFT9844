@@ -20,7 +20,7 @@ void ICACHE_FLASH_ATTR io_service::setup()
 
 void ICACHE_FLASH_ATTR io_service::loop()
 {
-  // ParpadeoLED();
+
 } // end io loop
 
 /**

@@ -22,12 +22,12 @@ void loop2(void *);
 void loop3(void *);
 //************************************************************************************************
 
-#define LVGL_REFRESH_TIME (5u) // 5 milliseconds
+#define ICACHE_FLASH_ATTR
 
 unsigned long asyncDelay0 = 0;
 int delayLength0 = 3000;
 
-void setup()
+void ICACHE_FLASH_ATTR setup()
 {
   // Segundo Siclo en el Núcleo Secundario.
   // Núcleo Principal  -> 1. APP
@@ -37,7 +37,7 @@ void setup()
   taskCreationResult = xTaskCreatePinnedToCore(
       loop1,
       "Task_1",
-      10500,
+      11264,
       NULL,
       1,
       &Task1,
@@ -52,7 +52,7 @@ void setup()
   taskCreationResult = xTaskCreatePinnedToCore(
       loop2,
       "Task_2",
-      27000,
+      27648,
       NULL,
       1,
       &Task2,
@@ -67,7 +67,7 @@ void setup()
   taskCreationResult = xTaskCreatePinnedToCore(
       loop3,
       "Task_3",
-      25000,
+      25600,
       NULL,
       1,
       &Task3,
@@ -88,7 +88,7 @@ void setup()
   /******************************************End FreeRTOS***************************************/
 }
 
-void loop()
+void ICACHE_FLASH_ATTR loop()
 {
   io.feedTheDog();
   if (millis() > asyncDelay0)
@@ -100,22 +100,22 @@ void loop()
 }
 //************************************************************************************************
 
-inline void loop_Task1(void)
+inline ICACHE_FLASH_ATTR void loop_Task1(void)
 {
   io.loop();
 }
 
-inline void loop_Task2(void)
+inline ICACHE_FLASH_ATTR void loop_Task2(void)
 {
   display.loop();
 }
 
-inline void loop_Task3(void)
+inline ICACHE_FLASH_ATTR void loop_Task3(void)
 {
   tp.loop();
 }
 
-void loop1(void *parameter)
+void ICACHE_FLASH_ATTR loop1(void *parameter)
 {
   int delayLength1 = 5700;
   unsigned long asyncDelay1 = 0;
@@ -131,7 +131,7 @@ void loop1(void *parameter)
     }
   }
 }
-void loop2(void *parameter)
+void ICACHE_FLASH_ATTR loop2(void *parameter)
 {
   int delayLength2 = 5500;
   unsigned long asyncDelay2 = 0;
@@ -148,7 +148,7 @@ void loop2(void *parameter)
   }
 }
 
-void loop3(void *parameter)
+void ICACHE_FLASH_ATTR loop3(void *parameter)
 {
   int delayLength3 = 5000;
   unsigned long asyncDelay3 = 0;
@@ -160,7 +160,7 @@ void loop3(void *parameter)
     if (millis() > asyncDelay3)
     {
       asyncDelay3 += delayLength3;
-      io.TestHWM("loop3");
+      // io.TestHWM("loop3");
     }
   }
 }

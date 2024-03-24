@@ -28,8 +28,7 @@ inline void tp_service::lv_no_sleep(uint32_t lv_sleep)
     {
         Serial.println();
         Serial.print(lv_disp_get_inactive_time(NULL));
-        //lv_obj_set_style_bg_color(lv_scr_act(), lv_color_hex(0xff000000), LV_PART_MAIN | LV_STATE_DEFAULT);
-
+        Serial.println();
     }
     //my_delay_ms(5);
 }

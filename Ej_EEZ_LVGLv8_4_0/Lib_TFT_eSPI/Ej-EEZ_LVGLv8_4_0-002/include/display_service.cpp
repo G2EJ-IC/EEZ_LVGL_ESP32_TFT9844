@@ -39,6 +39,11 @@ void ICACHE_FLASH_ATTR display_service::lv_setup()
     Serial.println(LVGL_Arduino);
     Serial.println("I am LVGL_Arduino");
 
+    log_d("Total heap: %d", ESP.getHeapSize());
+    log_d("Free heap: %d", ESP.getFreeHeap());
+    log_d("Total PSRAM: %d", ESP.getPsramSize());
+    log_d("Free PSRAM: %d", ESP.getFreePsram());
+
 #if LV_USE_LOG != 0
     /* Serial debugging */
     void my_print(const char *buf1)
