@@ -2,6 +2,8 @@
 #include "display_service.h"
 #include "io_service.h"
 #include "tp_service.h"
+#include "DateTime_AIoT.h"
+#include "screens.h"
 
 TaskHandle_t Task1 = NULL;
 TaskHandle_t Task2 = NULL;
@@ -11,6 +13,7 @@ SemaphoreHandle_t cuentaMutex;
 io_service io;            // load IO control service
 display_service display;  // load display service
 tp_service tp;            // load touchpad
+dhms_AIoT DateTime;       // load DateTime
 
 //************************************************************************************************
 inline void loop_Task1(void);
@@ -99,6 +102,10 @@ void ICACHE_FLASH_ATTR loop()
   {
     asyncDelay0 += delayLength0;
     io.ParpadeoLED();
+    String DHMS = DateTime.DHMS_AIoT((uint64_t)(asyncDelay0));
+    lv_label_set_text(objects.label_dhms_1, String(DHMS).c_str());
+    lv_label_set_text(objects.label_dhms_2, String(DHMS).c_str());
+    lv_label_set_text(objects.label_dhms_3, String(DHMS).c_str());
     io.TestHWM("loop", asyncDelay0);
   }
   

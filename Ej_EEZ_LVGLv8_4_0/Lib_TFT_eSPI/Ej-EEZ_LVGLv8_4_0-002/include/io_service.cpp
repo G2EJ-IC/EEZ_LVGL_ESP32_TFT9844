@@ -4,10 +4,10 @@
 #include "config.h"
 #include "io_service.h"
 #include "screens.h"
-#include "DateTime_AIoT.h"
+// #include "DateTime_AIoT.h"
 
 #define PinLED 2               // LED_BUILTIN
-dhms_AIoT DateTime; 
+// dhms_AIoT DateTime;       // load DateTime
 
 io_service::io_service() {}
 io_service::~io_service() {}
@@ -48,7 +48,7 @@ void ICACHE_FLASH_ATTR io_service::TestHWM(const char *taskName, uint32_t Ahora)
   uint32_t dispGIT = lv_disp_get_inactive_time(NULL);
   float temperature = temperatureRead();
   int HallEffectSensor = hallRead();
-  String DHMS = DateTime.DHMS_AIoT(HallEffectSensor);
+  // String DHMS = DateTime.DHMS_AIoT((uint64_t)Ahora);
 
   Serial.println("\n================================================================================");
   Serial.printf("(%s).: \n"
@@ -60,10 +60,6 @@ void ICACHE_FLASH_ATTR io_service::TestHWM(const char *taskName, uint32_t Ahora)
               "Hall Effect Sensor (%i)", 
               taskName, stack_HWM, portGCID, dispGIT, temperature, Ahora, HallEffectSensor);
   Serial.println("\n================================================================================");
-
-  lv_label_set_text(objects.label_dhms_1, String(Ahora).c_str());
-  lv_label_set_text(objects.label_dhms_2, String(Ahora).c_str());
-  lv_label_set_text(objects.label_dhms_3, String(Ahora).c_str());
 }
 
 void ICACHE_FLASH_ATTR io_service::feedTheDog(void)
