@@ -128,7 +128,7 @@ inline ICACHE_FLASH_ATTR void loop_Task3(void)
 
 void ICACHE_FLASH_ATTR loop1(void *parameter)
 {
-  int delayLength1 = 5700;
+  int delayLength1 = 5333;
   unsigned long asyncDelay1 = 0;
   io.setup();
   for (;;)
@@ -144,7 +144,7 @@ void ICACHE_FLASH_ATTR loop1(void *parameter)
 }
 void ICACHE_FLASH_ATTR loop2(void *parameter)
 {
-  int delayLength2 = 5500;
+  int delayLength2 = 5222;
   unsigned long asyncDelay2 = 0;
   display.setup();
   for (;;)
@@ -161,7 +161,7 @@ void ICACHE_FLASH_ATTR loop2(void *parameter)
 
 void ICACHE_FLASH_ATTR loop3(void *parameter)
 {
-  int delayLength3 = 5000;
+  int delayLength3 = 5111;
   unsigned long asyncDelay3 = 0;
   tp.setup();
   for (;;)

@@ -893,7 +893,7 @@
                       "type": "LVGLLabelWidget",
                       "left": 0,
                       "top": 0,
-                      "width": 221,
+                      "width": 208,
                       "height": 22,
                       "customInputs": [],
                       "customOutputs": [],
@@ -931,7 +931,7 @@
                           }
                         }
                       },
-                      "text": "00d 00h 00m 00.000s",
+                      "text": "00d 00h 00m 00.00s",
                       "textType": "literal",
                       "longMode": "WRAP",
                       "recolor": false
