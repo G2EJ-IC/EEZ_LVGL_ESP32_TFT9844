@@ -3,6 +3,7 @@
 #include "screens.h"
 
 static lv_obj_t * spinbox;
+int lv_value_1;
 
 static void lv_spinbox_increment_event_cb(lv_event_t * e)
 {
@@ -21,9 +22,9 @@ static void lv_spinbox_decrement_event_cb(lv_event_t * e)
 }
 
 void lv_spinbox(void)
-{
-    spinbox = lv_spinbox_create(lv_scr_act());
-    lv_spinbox_set_range(spinbox, -1000, 25000);
+{   
+    spinbox = lv_spinbox_create(objects.panel03);
+    lv_spinbox_set_range(spinbox, 0, 1000);
     lv_spinbox_set_digit_format(spinbox, 5, 2);
     lv_spinbox_step_prev(spinbox);
     lv_obj_set_width(spinbox, 100);
@@ -42,4 +43,10 @@ void lv_spinbox(void)
     lv_obj_align_to(btn, spinbox, LV_ALIGN_OUT_LEFT_MID, -5, 0);
     lv_obj_set_style_bg_img_src(btn, LV_SYMBOL_MINUS, 0);
     lv_obj_add_event_cb(btn, lv_spinbox_decrement_event_cb, LV_EVENT_ALL, NULL);
+}
+
+int ICACHE_FLASH_ATTR get_lv_spinbox(void)
+{
+    int lv_value_1 =  lv_spinbox_get_value(spinbox);
+    return lv_value_1;
 }
