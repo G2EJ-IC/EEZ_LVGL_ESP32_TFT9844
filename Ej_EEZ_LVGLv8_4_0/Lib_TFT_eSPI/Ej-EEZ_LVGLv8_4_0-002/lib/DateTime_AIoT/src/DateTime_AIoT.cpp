@@ -36,6 +36,5 @@ String dhms_AIoT::DHMS_AIoT(unsigned long long mSegT) {
     sprintf(DHMS,"%dd %.2dh %.2dm %.2d.%.2ds",
       DIA, HORA, MINUTO, SEG, SubSEG); 
   }
-
   return String(DHMS);
 }

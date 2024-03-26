@@ -11,20 +11,20 @@ inline Print &operator <<(Print &obj, T arg) {
 }
 
 #include <ConectarWiFi_AIoT.h>
-//Librerias WiFiManager
 #include <WiFi.h>
-//#include <wm_strings_en.h>
 #include <WebServer.h>
 #include <DNSServer.h>
 #include <WiFiManager.h>
-
 
 //Instancia de la Clase WiFiManager.
 WiFiManager wifiManager;
 
 bool Conecto;
 
-void ResetWiFi_AIoT(void) {
+    WiFi_AIoT::WiFi_AIoT(){};
+    WiFi_AIoT::~WiFi_AIoT(){};
+
+void ICACHE_FLASH_ATTR WiFi_AIoT::ResetWiFi_AIoT(void) {
     Serial << "\r\n";
     //Resetear Configuración.
     wifiManager.resetSettings();
@@ -36,7 +36,7 @@ void ResetWiFi_AIoT(void) {
     //wifiManager.
 }
 
-void DisconnectWiFi_AIoT(void) {
+void ICACHE_FLASH_ATTR WiFi_AIoT::DisconnectWiFi_AIoT(void) {
     Serial << "\r\n";
     //Desconectar Configuración.
     wifiManager.disconnect();
@@ -47,7 +47,7 @@ void DisconnectWiFi_AIoT(void) {
     Serial << "\r\n\n";
 }
 
-void ConectarWiFi_AIoT(void) {
+void ICACHE_FLASH_ATTR WiFi_AIoT::ConectarWiFi_AIoT(void) {
     if (WiFi.status() != WL_CONNECTED) {
         //---------------------------Monitor serial-----------------------------//
         Serial << "\r\n";
@@ -69,7 +69,7 @@ void ConectarWiFi_AIoT(void) {
             // ESP.restart();
             // delay(1000);
         }
-        // 266:	  WL_NO_SHIELD
+        // 266:	    WL_NO_SHIELD
         // 0:	  	WL_IDLE_STATUS 
         // 1:	  	WL_NO_SSID_AVAIL
         // 2:	  	WL_SCAN_COMPLETED
@@ -93,4 +93,29 @@ void ConectarWiFi_AIoT(void) {
             Serial << "\r\n";
         }
     }
+}
+
+String ICACHE_FLASH_ATTR WiFi_AIoT::AIoT_SSID(void)
+{
+    return wifiManager.getWiFiSSID();
+}
+
+String ICACHE_FLASH_ATTR WiFi_AIoT::AIoT_PWD(void)
+{
+    return wifiManager.getWiFiPass();
+}
+
+String ICACHE_FLASH_ATTR WiFi_AIoT::AIoT_IP(void)
+{
+    return WiFi.localIP().toString();
+}
+
+String ICACHE_FLASH_ATTR WiFi_AIoT::AIoT_DNS(void)
+{
+    return WiFi.dnsIP().toString();
+}
+
+String ICACHE_FLASH_ATTR WiFi_AIoT::AIoT_MAC(void)
+{
+    return WiFi.macAddress();
 }
