@@ -140,9 +140,9 @@ void create_screen_main1() {
             {
                 lv_obj_t *parent_obj = obj;
                 {
-                    // Panel01
+                    // Panel01_01
                     lv_obj_t *obj = lv_obj_create(parent_obj);
-                    objects.panel01 = obj;
+                    objects.panel01_01 = obj;
                     lv_obj_set_pos(obj, -10, -10);
                     lv_obj_set_size(obj, LV_PCT(105), LV_PCT(20));
                     lv_obj_clear_flag(obj, LV_OBJ_FLAG_SCROLLABLE);
@@ -218,10 +218,10 @@ void create_screen_main1() {
                     }
                 }
                 {
-                    // Panel02
+                    // Panel02_01
                     lv_obj_t *obj = lv_obj_create(parent_obj);
-                    objects.panel02 = obj;
-                    lv_obj_set_pos(obj, -11, 51);
+                    objects.panel02_01 = obj;
+                    lv_obj_set_pos(obj, -10, 50);
                     lv_obj_set_size(obj, LV_PCT(105), LV_PCT(20));
                     lv_obj_clear_flag(obj, LV_OBJ_FLAG_SCROLLABLE);
                     lv_obj_set_style_bg_color(obj, lv_color_hex(0xffc8c8c8), LV_PART_MAIN | LV_STATE_DEFAULT);
@@ -285,11 +285,11 @@ void create_screen_main1() {
                     }
                 }
                 {
-                    // Panel03
+                    // Panel03_01
                     lv_obj_t *obj = lv_obj_create(parent_obj);
-                    objects.panel03 = obj;
-                    lv_obj_set_pos(obj, -11, 110);
-                    lv_obj_set_size(obj, LV_PCT(105), LV_PCT(66));
+                    objects.panel03_01 = obj;
+                    lv_obj_set_pos(obj, -10, 110);
+                    lv_obj_set_size(obj, LV_PCT(105), LV_PCT(65));
                     lv_obj_clear_flag(obj, LV_OBJ_FLAG_SCROLLABLE);
                     lv_obj_set_style_bg_color(obj, lv_color_hex(0xffc8c8c8), LV_PART_MAIN | LV_STATE_DEFAULT);
                     lv_obj_set_style_border_color(obj, lv_color_hex(0xff000000), LV_PART_MAIN | LV_STATE_DEFAULT);
@@ -301,7 +301,7 @@ void create_screen_main1() {
                             // Bt_DHMS_1
                             lv_obj_t *obj = lv_btn_create(parent_obj);
                             objects.bt_dhms_1 = obj;
-                            lv_obj_set_pos(obj, -9, 132);
+                            lv_obj_set_pos(obj, -10, 130);
                             lv_obj_set_size(obj, 230, 30);
                             lv_obj_add_event_cb(obj, event_handler_cb_main1_bt_dhms_1, LV_EVENT_ALL, flowState);
                             lv_obj_add_flag(obj, LV_OBJ_FLAG_SCROLL_ON_FOCUS);
@@ -323,7 +323,7 @@ void create_screen_main1() {
                         }
                         {
                             lv_obj_t *obj = lv_img_create(parent_obj);
-                            lv_obj_set_pos(obj, 280, 0);
+                            lv_obj_set_pos(obj, 329, -4);
                             lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
                             lv_img_set_src(obj, &img_g2ej);
                             lv_obj_add_flag(obj, LV_OBJ_FLAG_ADV_HITTEST);
@@ -359,9 +359,9 @@ void create_screen_main2() {
             {
                 lv_obj_t *parent_obj = obj;
                 {
-                    // Panel01_1
+                    // Panel01_02
                     lv_obj_t *obj = lv_obj_create(parent_obj);
-                    objects.panel01_1 = obj;
+                    objects.panel01_02 = obj;
                     lv_obj_set_pos(obj, -10, -10);
                     lv_obj_set_size(obj, LV_PCT(105), LV_PCT(20));
                     lv_obj_clear_flag(obj, LV_OBJ_FLAG_SCROLLABLE);
@@ -437,11 +437,78 @@ void create_screen_main2() {
                     }
                 }
                 {
-                    // Panel03_1
+                    // Panel02_02
                     lv_obj_t *obj = lv_obj_create(parent_obj);
-                    objects.panel03_1 = obj;
-                    lv_obj_set_pos(obj, -10, 51);
-                    lv_obj_set_size(obj, LV_PCT(105), LV_PCT(87));
+                    objects.panel02_02 = obj;
+                    lv_obj_set_pos(obj, -10, 50);
+                    lv_obj_set_size(obj, LV_PCT(105), LV_PCT(20));
+                    lv_obj_clear_flag(obj, LV_OBJ_FLAG_SCROLLABLE);
+                    lv_obj_set_style_bg_color(obj, lv_color_hex(0xffc8c8c8), LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_border_color(obj, lv_color_hex(0xff000000), LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_border_width(obj, 2, LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_arc_width(obj, 10, LV_PART_MAIN | LV_STATE_DEFAULT);
+                    {
+                        lv_obj_t *parent_obj = obj;
+                        {
+                            // Bt_Plus_1
+                            lv_obj_t *obj = lv_btn_create(parent_obj);
+                            objects.bt_plus_1 = obj;
+                            lv_obj_set_pos(obj, -8, -5);
+                            lv_obj_set_size(obj, LV_PCT(45), LV_PCT(150));
+                            lv_obj_add_flag(obj, LV_OBJ_FLAG_SCROLL_ON_FOCUS);
+                            lv_obj_clear_flag(obj, LV_OBJ_FLAG_SCROLLABLE);
+                            lv_obj_set_style_text_font(obj, &lv_font_montserrat_32, LV_PART_MAIN | LV_STATE_DEFAULT);
+                            {
+                                lv_obj_t *parent_obj = obj;
+                                {
+                                    lv_obj_t *obj = lv_label_create(parent_obj);
+                                    lv_obj_set_pos(obj, 17, -5);
+                                    lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+                                    lv_label_set_text(obj, "Conectar WiFi");
+                                    lv_obj_set_style_text_align(obj, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
+                                    lv_obj_set_style_text_font(obj, &lv_font_montserrat_18, LV_PART_MAIN | LV_STATE_DEFAULT);
+                                }
+                            }
+                        }
+                        {
+                            // Bt_Minus_1
+                            lv_obj_t *obj = lv_btn_create(parent_obj);
+                            objects.bt_minus_1 = obj;
+                            lv_obj_set_pos(obj, 247, -5);
+                            lv_obj_set_size(obj, LV_PCT(45), LV_PCT(150));
+                            lv_obj_add_flag(obj, LV_OBJ_FLAG_SCROLL_ON_FOCUS);
+                            lv_obj_clear_flag(obj, LV_OBJ_FLAG_SCROLLABLE);
+                            {
+                                lv_obj_t *parent_obj = obj;
+                                {
+                                    lv_obj_t *obj = lv_label_create(parent_obj);
+                                    lv_obj_set_pos(obj, 1, -5);
+                                    lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+                                    lv_label_set_text(obj, "Desconectar WiFi");
+                                    lv_obj_set_style_text_align(obj, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
+                                    lv_obj_set_style_text_font(obj, &lv_font_montserrat_18, LV_PART_MAIN | LV_STATE_DEFAULT);
+                                }
+                            }
+                        }
+                        {
+                            // Bt_Conectado_WiFi
+                            lv_obj_t *obj = lv_btn_create(parent_obj);
+                            objects.bt_conectado_wi_fi = obj;
+                            lv_obj_set_pos(obj, 199, -6);
+                            lv_obj_set_size(obj, 32, 32);
+                            lv_obj_add_flag(obj, LV_OBJ_FLAG_SCROLL_ON_FOCUS);
+                            lv_obj_clear_flag(obj, LV_OBJ_FLAG_CLICKABLE|LV_OBJ_FLAG_SCROLLABLE);
+                            lv_obj_set_style_radius(obj, 16, LV_PART_MAIN | LV_STATE_DEFAULT);
+                            lv_obj_set_style_bg_color(obj, lv_color_hex(0xffff0000), LV_PART_MAIN | LV_STATE_DEFAULT);
+                        }
+                    }
+                }
+                {
+                    // Panel03_02
+                    lv_obj_t *obj = lv_obj_create(parent_obj);
+                    objects.panel03_02 = obj;
+                    lv_obj_set_pos(obj, -10, 110);
+                    lv_obj_set_size(obj, LV_PCT(105), LV_PCT(65));
                     lv_obj_clear_flag(obj, LV_OBJ_FLAG_SCROLLABLE);
                     lv_obj_set_style_bg_color(obj, lv_color_hex(0xffc8c8c8), LV_PART_MAIN | LV_STATE_DEFAULT);
                     lv_obj_set_style_border_color(obj, lv_color_hex(0xff000000), LV_PART_MAIN | LV_STATE_DEFAULT);
@@ -453,7 +520,7 @@ void create_screen_main2() {
                             // Bt_DHMS_2
                             lv_obj_t *obj = lv_btn_create(parent_obj);
                             objects.bt_dhms_2 = obj;
-                            lv_obj_set_pos(obj, -9, 192);
+                            lv_obj_set_pos(obj, -10, 130);
                             lv_obj_set_size(obj, 230, 30);
                             lv_obj_add_event_cb(obj, event_handler_cb_main2_bt_dhms_2, LV_EVENT_ALL, flowState);
                             lv_obj_add_flag(obj, LV_OBJ_FLAG_SCROLL_ON_FOCUS);
@@ -475,7 +542,7 @@ void create_screen_main2() {
                         }
                         {
                             lv_obj_t *obj = lv_img_create(parent_obj);
-                            lv_obj_set_pos(obj, 163, 28);
+                            lv_obj_set_pos(obj, 329, -4);
                             lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
                             lv_img_set_src(obj, &img_g2ej);
                             lv_obj_add_flag(obj, LV_OBJ_FLAG_ADV_HITTEST);
