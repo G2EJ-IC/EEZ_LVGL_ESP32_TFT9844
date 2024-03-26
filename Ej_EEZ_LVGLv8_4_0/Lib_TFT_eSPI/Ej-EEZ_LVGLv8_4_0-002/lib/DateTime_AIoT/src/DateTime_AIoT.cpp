@@ -6,15 +6,6 @@
   dhms_AIoT::~dhms_AIoT(){};
 
 /* =============================icache functions========================= */
-void ICACHE_FLASH_ATTR dhms_AIoT::setup()
-{
-
-} // end io setup
-
-void ICACHE_FLASH_ATTR dhms_AIoT::loop()
-{
-
-} // end io loop
 
 String dhms_AIoT::DHMS_AIoT(unsigned long long mSegT) {
   char DHMS[25];

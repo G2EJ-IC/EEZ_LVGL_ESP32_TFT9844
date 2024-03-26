@@ -8,11 +8,7 @@ private:
 public:
     dhms_AIoT();
     ~dhms_AIoT();
-
-    String ICACHE_FLASH_ATTR DHMS_AIoT(unsigned long long);
-
-    void ICACHE_FLASH_ATTR setup();
-    void ICACHE_FLASH_ATTR loop();       
+    String ICACHE_FLASH_ATTR DHMS_AIoT(unsigned long long);     
 };
 
 #endif // __DATETIME_AIOT_H__
