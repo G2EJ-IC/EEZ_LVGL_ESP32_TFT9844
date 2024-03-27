@@ -92,7 +92,7 @@ extern void action_fn_desconectar_wi_fi(lv_event_t * e)
 	lv_label_set_text(objects.ui_lab_mac, "xx:xx:xx:xx:xx:xx");
 	lv_obj_set_style_bg_color(objects.bt_conectado_2, lv_color_hex(0xFF0000), LV_PART_MAIN | LV_STATE_DEFAULT);
 	lv_obj_set_style_bg_color(objects.bt_conectado_3, lv_color_hex(0xFF0000), LV_PART_MAIN | LV_STATE_DEFAULT);
-	wifi_AIoT.ConectarWiFi_AIoT();
+	wifi_AIoT.DisconnectWiFi_AIoT();
 }
 
 extern void action_fn_rescan_wi_fi(lv_event_t * e)
@@ -103,4 +103,5 @@ extern void action_fn_rescan_wi_fi(lv_event_t * e)
 	lv_label_set_text(objects.ui_lab_mac, "xx:xx:xx:xx:xx:xx");
 	lv_obj_set_style_bg_color(objects.bt_conectado_2, lv_color_hex(0xFF0000), LV_PART_MAIN | LV_STATE_DEFAULT);
 	lv_obj_set_style_bg_color(objects.bt_conectado_3, lv_color_hex(0xFF0000), LV_PART_MAIN | LV_STATE_DEFAULT);
+	wifi_AIoT.ResetWiFi_AIoT();
 }

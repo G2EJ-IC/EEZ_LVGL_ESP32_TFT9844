@@ -27,7 +27,7 @@ static lv_disp_draw_buf_t draw_buf;
 #define DRAW_BUF_SIZE (screenWidth * screenHeight / N * (LV_COLOR_DEPTH / 8))
 static lv_color_t buf1[DRAW_BUF_SIZE / 4];
 #elif (BUF_NUM == 2)
-static lv_color_t buf2[screenWidth * screenHeight / N];
+static lv_color_t buf2[DRAW_BUF_SIZE / 4];
 #endif
 
 /* =============================icache functions========================= */
