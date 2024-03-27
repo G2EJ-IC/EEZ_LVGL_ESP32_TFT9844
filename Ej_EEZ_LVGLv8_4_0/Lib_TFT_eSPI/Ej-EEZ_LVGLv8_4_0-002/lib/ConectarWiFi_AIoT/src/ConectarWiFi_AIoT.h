@@ -2,18 +2,20 @@
 #define __SRC_CONECTARWIFI_AIOT_H__
 
 #include <Arduino.h>
-#include <WiFiManager.h>
+#include <WiFi.h>
 
 class WiFi_AIoT
 {
 private:
+    void WiFi_Manager(void);
+    void WiFi_Multi(void);
 
 public:
     WiFi_AIoT();
     ~WiFi_AIoT();
     void ResetWiFi_AIoT(void);
     void DisconnectWiFi_AIoT(void);
-    void ConectarWiFi_AIoT(void);
+    void ConectarWiFi_AIoT(int);
 
     String get_AIoT_SSID(void);
     String get_AIoT_PWD(void);

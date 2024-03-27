@@ -66,7 +66,8 @@ extern void action_fn_minus(lv_event_t * e)
 
 extern void action_fn_conectar_wi_fi(lv_event_t * e)
 {
-	wifi_AIoT.ConectarWiFi_AIoT();
+	int opcion = lv_dropdown_get_selected(objects.drop_down_1);
+	wifi_AIoT.ConectarWiFi_AIoT(opcion);
 	if (WiFi.status() == WL_CONNECTED) {
 		lv_label_set_text(objects.ui_lab_ssid, wifi_AIoT.get_AIoT_SSID().c_str());
 		lv_label_set_text(objects.ui_lab_ip, wifi_AIoT.get_AIoT_IP().c_str());

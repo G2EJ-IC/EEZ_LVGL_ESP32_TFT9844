@@ -883,11 +883,51 @@
               "heightUnit": "%",
               "children": [
                 {
+                  "objID": "74257bfa-402e-49be-a855-3be10bf84394",
+                  "type": "LVGLDropdownWidget",
+                  "left": -8,
+                  "top": -6,
+                  "width": 208,
+                  "height": 40,
+                  "customInputs": [],
+                  "customOutputs": [],
+                  "style": {
+                    "objID": "45487182-717d-4f8c-e6e8-b401a8bbac2d",
+                    "useStyle": "default",
+                    "conditionalStyles": [],
+                    "childStyles": []
+                  },
+                  "timeline": [],
+                  "eventHandlers": [],
+                  "identifier": "DropDown_1",
+                  "leftUnit": "px",
+                  "topUnit": "px",
+                  "widthUnit": "px",
+                  "heightUnit": "px",
+                  "children": [],
+                  "flags": "PRESS_LOCK|CLICK_FOCUSABLE|GESTURE_BUBBLE|SNAPPABLE",
+                  "hiddenFlagType": "literal",
+                  "clickableFlag": true,
+                  "clickableFlagType": "literal",
+                  "scrollbarMode": "auto",
+                  "scrollDirection": "all",
+                  "checkedStateType": "literal",
+                  "disabledStateType": "literal",
+                  "states": "",
+                  "localStyles": {
+                    "objID": "97d71175-2281-4260-82cb-53fed28a6c96"
+                  },
+                  "options": "WiFi Manager\nWiFi Multi",
+                  "optionsType": "literal",
+                  "selected": 0,
+                  "selectedType": "literal"
+                },
+                {
                   "objID": "f2bc82cd-dcf4-413e-ed95-ade817f0a48d",
                   "type": "LVGLButtonWidget",
                   "left": -10,
                   "top": 130,
-                  "width": 230,
+                  "width": 200,
                   "height": 30,
                   "customInputs": [],
                   "customOutputs": [],
@@ -919,8 +959,8 @@
                       "type": "LVGLLabelWidget",
                       "left": 0,
                       "top": 0,
-                      "width": 208,
-                      "height": 22,
+                      "width": 172,
+                      "height": 18,
                       "customInputs": [],
                       "customOutputs": [],
                       "style": {
@@ -951,7 +991,7 @@
                           "MAIN": {
                             "DEFAULT": {
                               "align": "CENTER",
-                              "text_font": "MONTSERRAT_20",
+                              "text_font": "MONTSERRAT_16",
                               "text_align": "CENTER"
                             }
                           }
@@ -2131,7 +2171,7 @@
                   "type": "LVGLButtonWidget",
                   "left": -10,
                   "top": 130,
-                  "width": 230,
+                  "width": 200,
                   "height": 30,
                   "customInputs": [],
                   "customOutputs": [],
@@ -2163,8 +2203,8 @@
                       "type": "LVGLLabelWidget",
                       "left": 0,
                       "top": 0,
-                      "width": 221,
-                      "height": 22,
+                      "width": 183,
+                      "height": 18,
                       "customInputs": [],
                       "customOutputs": [],
                       "style": {
@@ -2195,7 +2235,7 @@
                           "MAIN": {
                             "DEFAULT": {
                               "align": "CENTER",
-                              "text_font": "MONTSERRAT_20",
+                              "text_font": "MONTSERRAT_16",
                               "text_align": "CENTER"
                             }
                           }
@@ -2991,7 +3031,7 @@
                   "type": "LVGLButtonWidget",
                   "left": -10,
                   "top": 130,
-                  "width": 230,
+                  "width": 200,
                   "height": 30,
                   "customInputs": [],
                   "customOutputs": [],
@@ -3023,8 +3063,8 @@
                       "type": "LVGLLabelWidget",
                       "left": 0,
                       "top": 0,
-                      "width": 221,
-                      "height": 22,
+                      "width": 183,
+                      "height": 18,
                       "customInputs": [],
                       "customOutputs": [],
                       "style": {
@@ -3055,7 +3095,7 @@
                           "MAIN": {
                             "DEFAULT": {
                               "align": "CENTER",
-                              "text_font": "MONTSERRAT_20",
+                              "text_font": "MONTSERRAT_16",
                               "text_align": "CENTER"
                             }
                           }

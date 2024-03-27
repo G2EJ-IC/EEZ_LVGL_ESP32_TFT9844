@@ -31,6 +31,7 @@ typedef struct _objects_t {
     lv_obj_t *bt_pagina_uno_l_1;
     lv_obj_t *bt_plus;
     lv_obj_t *bt_rescan_wi_fi_3;
+    lv_obj_t *drop_down_1;
     lv_obj_t *label_counter;
     lv_obj_t *label_dhms_1;
     lv_obj_t *label_dhms_2;

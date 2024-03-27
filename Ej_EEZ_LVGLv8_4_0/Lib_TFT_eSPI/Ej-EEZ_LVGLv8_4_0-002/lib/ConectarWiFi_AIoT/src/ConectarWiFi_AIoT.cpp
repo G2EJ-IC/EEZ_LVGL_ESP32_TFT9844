@@ -13,70 +13,21 @@ inline Print &operator<<(Print &obj, T arg)
 
 #include <ConectarWiFi_AIoT.h>
 #include <WiFi.h>
+#include <WiFiManager.h>
 #include <WiFiMulti.h>
 #include <WebServer.h>
 #include <DNSServer.h>
 #include <token.h>
-
-// Instancia de la Clase WiFiManager y WiFiMulti.
-WiFiManager wifiManager;
-WiFiMulti wifiMulti;
 
 bool Conecto;
 
 WiFi_AIoT::WiFi_AIoT(){};
 WiFi_AIoT::~WiFi_AIoT(){};
 
-void WiFi_AIoT::ResetWiFi_AIoT(void)
+void WiFi_AIoT::WiFi_Manager(void)
 {
-    Serial << "\r\n";
-    // Resetear Configuración.
-    wifiManager.resetSettings();
-    Serial << "\r\n\n\n\nReseteo de Redes WiFi Guardadas.... ";
-    // Consultar SSID y contraseña guardados - Imprimir SSID y contraseña
-    Serial << "\r\nSSID guardado: " << wifiManager.getWiFiSSID();
-    Serial << "\r\nContraseña guardada: " << wifiManager.getWiFiPass();
-    Serial << "\r\n\n";
-    // wifiManager.
-}
-
-void WiFi_AIoT::DisconnectWiFi_AIoT(void)
-{
-    Serial << "\r\n";
-    // Desconectar Configuración.
-    wifiManager.disconnect();
-    Serial << "\r\n\n\n\nDesconección de La Red WiFi.... ";
-    // Consultar SSID y contraseña guardados - Imprimir SSID y contraseña
-    Serial << "\r\nSSID guardado: " << wifiManager.getWiFiSSID();
-    Serial << "\r\nContraseña guardada: " << wifiManager.getWiFiPass();
-    Serial << "\r\n\n";
-}
-
-void WiFi_AIoT::ConectarWiFi_AIoT(void)
-{
-    uint8_t contador2 = 0;
-    while (wifiMulti.run() != WL_CONNECTED)
-    {
-        contador2++;
-        Serial << "\r\n\n\n.:: " << contador2 << " ::.";
-        for (int i = 0; i < numNetworks; i++)
-        {
-            Serial << "\r\n";
-            Serial << "\r\nSSID(" << String(i + 1) << ").: " << String(wifiNetworks[i].ssid);
-            Serial << "\r\nPASS(" << String(i + 1) << ").: " << String(wifiNetworks[i].pass);
-            Serial << "\r\n";
-            wifiMulti.addAP(wifiNetworks[i].ssid, wifiNetworks[i].pass);
-            delay(2000);
-        }
-        if (contador2 > 11)
-        {
-            Serial << "\r\n\n";
-            Serial << "\r\nFallo Conección a WiFi (NOK).";
-            Serial << "\r\n\n";
-            break;
-        }
-    }
-
+    WiFiManager wifiManager;
+    WiFi.mode(WIFI_STA);
     if (WiFi.status() != WL_CONNECTED)
     {
         //---------------------------Monitor serial-----------------------------//
@@ -90,16 +41,14 @@ void WiFi_AIoT::ConectarWiFi_AIoT(void)
         Serial << "\r\n\n";
         Serial << "\r\nPor favor, conecte el celular a la red (.:: AIoT_NodeESP32 ::.) y configure WiFi.... ";
         Serial << "\r\n\n\n";
-
-        WiFi.mode(WIFI_STA);
         // Crear AP y Portal Cautivo.
         Conecto = wifiManager.autoConnect(".:: AIoT_NodeESP32 ::.");
 
         if (!Conecto)
         {
             Serial << "\r\nFallo la Conección (timeout - NOK)";
-            // ESP.restart();
-            // delay(1000);
+            ESP.restart();
+            delay(1000);
         }
         // 266:	    WL_NO_SHIELD
         // 0:	  	WL_IDLE_STATUS
@@ -128,6 +77,77 @@ void WiFi_AIoT::ConectarWiFi_AIoT(void)
     }
 }
 
+void WiFi_AIoT::WiFi_Multi(void)
+{
+    uint8_t contador2 = 0;
+    WiFiMulti wifiMulti;
+    WiFi.mode(WIFI_STA);
+    while (wifiMulti.run() != WL_CONNECTED)
+    {
+        contador2++;
+        Serial << "\r\n\n\n.:: " << contador2 << " ::.";
+        for (int i = 0; i < numNetworks; i++)
+        {
+            Serial << "\r\n";
+            Serial << "\r\nSSID(" << String(i + 1) << ").: " << String(wifiNetworks[i].ssid);
+            Serial << "\r\nPASS(" << String(i + 1) << ").: " << String(wifiNetworks[i].pass);
+            Serial << "\r\n";
+            wifiMulti.addAP(wifiNetworks[i].ssid, wifiNetworks[i].pass);
+            delay(2000);
+        }
+        if (contador2 > 11)
+        {
+            Serial << "\r\n\n";
+            Serial << "\r\nFallo Conección a WiFi (NOK).";
+            Serial << "\r\n\n";
+            break;
+        }
+    }
+}
+
+void WiFi_AIoT::ResetWiFi_AIoT(void)
+{
+    WiFiManager wifiManager;
+    Serial << "\r\n";
+    // Resetear Configuración.
+    wifiManager.resetSettings();
+    Serial << "\r\n\n\n\nReseteo de Redes WiFi Guardadas.... ";
+    // Consultar SSID y contraseña guardados - Imprimir SSID y contraseña
+    Serial << "\r\nSSID guardado: " << wifiManager.getWiFiSSID();
+    Serial << "\r\nContraseña guardada: " << wifiManager.getWiFiPass();
+    Serial << "\r\n\n";
+    // wifiManager.
+}
+
+void WiFi_AIoT::DisconnectWiFi_AIoT(void)
+{
+    WiFiManager wifiManager;
+    Serial << "\r\n";
+    // Desconectar Configuración.
+    wifiManager.disconnect();
+    Serial << "\r\n\n\n\nDesconección de La Red WiFi.... ";
+    // Consultar SSID y contraseña guardados - Imprimir SSID y contraseña
+    Serial << "\r\nSSID guardado: " << wifiManager.getWiFiSSID();
+    Serial << "\r\nContraseña guardada: " << wifiManager.getWiFiPass();
+    Serial << "\r\n\n";
+}
+
+void WiFi_AIoT::ConectarWiFi_AIoT(int opcion)
+{
+    Serial << "\r\n\n\n\nSe escojio la Opcion.: " << opcion;
+    switch (opcion) {
+        case 0:
+            WiFi_Manager();
+            break;
+        case 1:
+            WiFi_Multi();
+            break;
+        default:
+            WiFi_Manager();
+            break;
+    }
+}
+
 String WiFi_AIoT::get_AIoT_SSID(void)
 {
     return WiFi.SSID();
@@ -135,6 +155,7 @@ String WiFi_AIoT::get_AIoT_SSID(void)
 
 String WiFi_AIoT::get_AIoT_PWD(void)
 {
+    WiFiManager wifiManager;
     return wifiManager.getWiFiPass();
 }
 

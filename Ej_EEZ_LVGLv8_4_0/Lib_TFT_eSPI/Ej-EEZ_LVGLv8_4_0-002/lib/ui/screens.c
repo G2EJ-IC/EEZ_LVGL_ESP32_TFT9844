@@ -330,11 +330,19 @@ void create_screen_main1() {
                     {
                         lv_obj_t *parent_obj = obj;
                         {
+                            // DropDown_1
+                            lv_obj_t *obj = lv_dropdown_create(parent_obj);
+                            objects.drop_down_1 = obj;
+                            lv_obj_set_pos(obj, -8, -6);
+                            lv_obj_set_size(obj, 208, 40);
+                            lv_dropdown_set_options(obj, "WiFi Manager\nWiFi Multi");
+                        }
+                        {
                             // Bt_DHMS_1
                             lv_obj_t *obj = lv_btn_create(parent_obj);
                             objects.bt_dhms_1 = obj;
                             lv_obj_set_pos(obj, -10, 130);
-                            lv_obj_set_size(obj, 230, 30);
+                            lv_obj_set_size(obj, 200, 30);
                             lv_obj_add_event_cb(obj, event_handler_cb_main1_bt_dhms_1, LV_EVENT_ALL, flowState);
                             lv_obj_add_flag(obj, LV_OBJ_FLAG_SCROLL_ON_FOCUS);
                             lv_obj_clear_flag(obj, LV_OBJ_FLAG_CLICKABLE|LV_OBJ_FLAG_SCROLLABLE);
@@ -348,7 +356,7 @@ void create_screen_main1() {
                                     lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
                                     lv_label_set_text(obj, "00d 00h 00m 00.00s");
                                     lv_obj_set_style_align(obj, LV_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
-                                    lv_obj_set_style_text_font(obj, &lv_font_montserrat_20, LV_PART_MAIN | LV_STATE_DEFAULT);
+                                    lv_obj_set_style_text_font(obj, &lv_font_montserrat_16, LV_PART_MAIN | LV_STATE_DEFAULT);
                                     lv_obj_set_style_text_align(obj, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
                                 }
                             }
@@ -642,7 +650,7 @@ void create_screen_main2() {
                             lv_obj_t *obj = lv_btn_create(parent_obj);
                             objects.bt_dhms_2 = obj;
                             lv_obj_set_pos(obj, -10, 130);
-                            lv_obj_set_size(obj, 230, 30);
+                            lv_obj_set_size(obj, 200, 30);
                             lv_obj_add_event_cb(obj, event_handler_cb_main2_bt_dhms_2, LV_EVENT_ALL, flowState);
                             lv_obj_add_flag(obj, LV_OBJ_FLAG_SCROLL_ON_FOCUS);
                             lv_obj_clear_flag(obj, LV_OBJ_FLAG_CLICKABLE|LV_OBJ_FLAG_SCROLLABLE);
@@ -656,7 +664,7 @@ void create_screen_main2() {
                                     lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
                                     lv_label_set_text(obj, "00d 00h 00m 00.000s");
                                     lv_obj_set_style_align(obj, LV_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
-                                    lv_obj_set_style_text_font(obj, &lv_font_montserrat_20, LV_PART_MAIN | LV_STATE_DEFAULT);
+                                    lv_obj_set_style_text_font(obj, &lv_font_montserrat_16, LV_PART_MAIN | LV_STATE_DEFAULT);
                                     lv_obj_set_style_text_align(obj, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
                                 }
                             }
@@ -862,7 +870,7 @@ void create_screen_main3() {
                             lv_obj_t *obj = lv_btn_create(parent_obj);
                             objects.bt_dhms_3 = obj;
                             lv_obj_set_pos(obj, -10, 130);
-                            lv_obj_set_size(obj, 230, 30);
+                            lv_obj_set_size(obj, 200, 30);
                             lv_obj_add_event_cb(obj, event_handler_cb_main3_bt_dhms_3, LV_EVENT_ALL, flowState);
                             lv_obj_add_flag(obj, LV_OBJ_FLAG_SCROLL_ON_FOCUS);
                             lv_obj_clear_flag(obj, LV_OBJ_FLAG_CLICKABLE|LV_OBJ_FLAG_SCROLLABLE);
@@ -876,7 +884,7 @@ void create_screen_main3() {
                                     lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
                                     lv_label_set_text(obj, "00d 00h 00m 00.000s");
                                     lv_obj_set_style_align(obj, LV_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
-                                    lv_obj_set_style_text_font(obj, &lv_font_montserrat_20, LV_PART_MAIN | LV_STATE_DEFAULT);
+                                    lv_obj_set_style_text_font(obj, &lv_font_montserrat_16, LV_PART_MAIN | LV_STATE_DEFAULT);
                                     lv_obj_set_style_text_align(obj, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
                                 }
                             }
