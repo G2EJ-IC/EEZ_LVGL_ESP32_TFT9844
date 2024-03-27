@@ -14,7 +14,7 @@ display_service::~display_service() {}
 /*Change to your screen resolution*/
 static const uint16_t screenWidth = 480;
 static const uint16_t screenHeight = 320;
-static const uint16_t N = 10u; // N = {10, 12, 16, 20, 24, 25, 32}
+static const uint16_t N = 12u; // N = {10, 12, 16, 20, 24, 25, 32}
 
 // extern TFT_eSPI tft = TFT_eSPI(); /* TFT instance */
 TFT_eSPI tft = TFT_eSPI(screenWidth, screenHeight); /* TFT instance */
@@ -23,7 +23,9 @@ extern tp_service tp; // load tp service
 static lv_disp_draw_buf_t draw_buf;
 
 #if (BUF_NUM == 1)
-static lv_color_t buf1[screenWidth * screenHeight / N];
+/*LVGL draw into this buffer, 1/10 screen size usually works well. The size is in bytes*/
+#define DRAW_BUF_SIZE (screenWidth * screenHeight / N * (LV_COLOR_DEPTH / 8))
+static lv_color_t buf1[DRAW_BUF_SIZE / 4];
 #elif (BUF_NUM == 2)
 static lv_color_t buf2[screenWidth * screenHeight / N];
 #endif
@@ -68,9 +70,9 @@ void ICACHE_FLASH_ATTR display_service::touch_setup()
 
 #if (BUF_NUM == 1)
     // lv_disp_buf_init(&disp_buf, buf1, NULL, DISP_BUF_SIZE);
-    lv_disp_draw_buf_init(&draw_buf, buf1, NULL, screenWidth * screenHeight / N);
+    lv_disp_draw_buf_init(&draw_buf, buf1, NULL, DRAW_BUF_SIZE / 4);
 #elif (BUF_NUM == 2)
-    lv_disp_buf_init(&draw_buf, buf1, buf2, screenWidth * screenHeight / N);
+    lv_disp_buf_init(&draw_buf, buf1, buf2, DRAW_BUF_SIZE / 4);
 #endif
 
     /*Initialize the display*/

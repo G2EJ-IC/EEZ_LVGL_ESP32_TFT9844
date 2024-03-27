@@ -13,6 +13,9 @@ ActionExecFunc actions[] = {
     action_fn_pagina_1_ok,
     action_fn_pagina_2_ok,
     action_fn_pagina_3_ok,
+    action_fn_conectar_wi_fi,
+    action_fn_desconectar_wi_fi,
+    action_fn_rescan_wi_fi,
 };
 
 

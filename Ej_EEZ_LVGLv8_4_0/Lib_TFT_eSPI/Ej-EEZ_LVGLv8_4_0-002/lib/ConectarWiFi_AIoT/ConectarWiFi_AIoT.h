@@ -13,6 +13,8 @@ extern "C" {
 /*********************
  *      INCLUDES
  *********************/
+
+#include <WiFiManager.h>
 #include "src/ConectarWiFi_AIoT.h"
 
 /*********************

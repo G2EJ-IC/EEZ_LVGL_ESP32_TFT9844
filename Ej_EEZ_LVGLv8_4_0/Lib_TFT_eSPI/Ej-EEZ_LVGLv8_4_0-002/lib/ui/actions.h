@@ -17,6 +17,9 @@ extern void action_fn_pagina_3_tres(lv_event_t * e);
 extern void action_fn_pagina_1_ok(lv_event_t * e);
 extern void action_fn_pagina_2_ok(lv_event_t * e);
 extern void action_fn_pagina_3_ok(lv_event_t * e);
+extern void action_fn_conectar_wi_fi(lv_event_t * e);
+extern void action_fn_desconectar_wi_fi(lv_event_t * e);
+extern void action_fn_rescan_wi_fi(lv_event_t * e);
 
 
 #ifdef __cplusplus

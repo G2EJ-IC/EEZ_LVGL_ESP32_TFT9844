@@ -23,7 +23,7 @@ bool Conecto;
     WiFi_AIoT::WiFi_AIoT(){};
     WiFi_AIoT::~WiFi_AIoT(){};
 
-void ICACHE_FLASH_ATTR WiFi_AIoT::ResetWiFi_AIoT(void) {
+void WiFi_AIoT::ResetWiFi_AIoT(void) {
     Serial << "\r\n";
     //Resetear Configuración.
     wifiManager.resetSettings();
@@ -35,7 +35,7 @@ void ICACHE_FLASH_ATTR WiFi_AIoT::ResetWiFi_AIoT(void) {
     //wifiManager.
 }
 
-void ICACHE_FLASH_ATTR WiFi_AIoT::DisconnectWiFi_AIoT(void) {
+void WiFi_AIoT::DisconnectWiFi_AIoT(void) {
     Serial << "\r\n";
     //Desconectar Configuración.
     wifiManager.disconnect();
@@ -46,7 +46,7 @@ void ICACHE_FLASH_ATTR WiFi_AIoT::DisconnectWiFi_AIoT(void) {
     Serial << "\r\n\n";
 }
 
-void ICACHE_FLASH_ATTR WiFi_AIoT::ConectarWiFi_AIoT(void) {
+void WiFi_AIoT::ConectarWiFi_AIoT(void) {
     if (WiFi.status() != WL_CONNECTED) {
         //---------------------------Monitor serial-----------------------------//
         Serial << "\r\n";
@@ -94,32 +94,32 @@ void ICACHE_FLASH_ATTR WiFi_AIoT::ConectarWiFi_AIoT(void) {
     }
 }
 
-String ICACHE_FLASH_ATTR WiFi_AIoT::AIoT_SSID_get(void)
+String WiFi_AIoT::get_AIoT_SSID(void)
 {
-    return wifiManager.getWiFiSSID();
+    return WiFi.SSID();
 }
 
-String ICACHE_FLASH_ATTR WiFi_AIoT::AIoT_PWD_get(void)
+String WiFi_AIoT::get_AIoT_PWD(void)
 {
-    return wifiManager.getWiFiPass();
+    return wifiManager.getWiFiPass();    
 }
 
-String ICACHE_FLASH_ATTR WiFi_AIoT::AIoT_IP_get(void)
+String WiFi_AIoT::get_AIoT_IP(void)
 {
     return WiFi.localIP().toString();
 }
 
-String ICACHE_FLASH_ATTR WiFi_AIoT::AIoT_DNS_get(void)
+String WiFi_AIoT::get_AIoT_DNS(void)
 {
     return WiFi.dnsIP().toString();
 }
 
-String ICACHE_FLASH_ATTR WiFi_AIoT::AIoT_MAC_get(void)
+String WiFi_AIoT::get_AIoT_MAC(void)
 {
     return WiFi.macAddress();
 }
 
-wl_status_t ICACHE_FLASH_ATTR WiFi_AIoT::AIoT_status_get(void)
+wl_status_t WiFi_AIoT::get_AIoT_status(void)
 {
     return WiFi.status();
 }

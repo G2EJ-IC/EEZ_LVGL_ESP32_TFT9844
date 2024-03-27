@@ -12,11 +12,14 @@ typedef struct _objects_t {
     lv_obj_t *main2;
     lv_obj_t *main3;
     lv_obj_t *bt_conectado_2;
+    lv_obj_t *bt_conectado_3;
+    lv_obj_t *bt_conectar_wifi_2;
+    lv_obj_t *bt_desconectar_wi_fi_2;
+    lv_obj_t *bt_desconectar_wi_fi_3;
     lv_obj_t *bt_dhms_1;
     lv_obj_t *bt_dhms_2;
     lv_obj_t *bt_dhms_3;
     lv_obj_t *bt_minus;
-    lv_obj_t *bt_minus_1;
     lv_obj_t *bt_pagina_1;
     lv_obj_t *bt_pagina_2;
     lv_obj_t *bt_pagina_3;
@@ -27,7 +30,7 @@ typedef struct _objects_t {
     lv_obj_t *bt_pagina_uno_l;
     lv_obj_t *bt_pagina_uno_l_1;
     lv_obj_t *bt_plus;
-    lv_obj_t *bt_plus_1;
+    lv_obj_t *bt_rescan_wi_fi_3;
     lv_obj_t *label_counter;
     lv_obj_t *label_dhms_1;
     lv_obj_t *label_dhms_2;
@@ -44,6 +47,7 @@ typedef struct _objects_t {
     lv_obj_t *panel01_3;
     lv_obj_t *panel02_1;
     lv_obj_t *panel02_2;
+    lv_obj_t *panel02_3;
     lv_obj_t *panel03_1;
     lv_obj_t *panel03_2;
     lv_obj_t *panel03_3;

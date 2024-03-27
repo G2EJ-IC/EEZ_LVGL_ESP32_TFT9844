@@ -13,8 +13,10 @@ inline Print &operator <<(Print &obj, T arg) {
 #include "actions.h"
 #include "screens.h"
 #include "widgets_AIoT.h"
+#include "ConectarWiFi_AIoT.h"
 
 int counter;
+WiFi_AIoT wifi_AIoT;
 
 extern void action_fn_pagina_1_uno(lv_event_t * e)
 {
@@ -60,4 +62,45 @@ extern void action_fn_minus(lv_event_t * e)
 	const char *counter3 = std::to_string(counter2).c_str();
 	lv_label_set_text(objects.label_counter, counter3);
 	Serial << "\nEl contador va en.: (" << counter << ").\n\n";
+}
+
+extern void action_fn_conectar_wi_fi(lv_event_t * e)
+{
+	wifi_AIoT.ConectarWiFi_AIoT();
+	if (WiFi.status() == WL_CONNECTED) {
+		lv_label_set_text(objects.ui_lab_ssid, wifi_AIoT.get_AIoT_SSID().c_str());
+		lv_label_set_text(objects.ui_lab_ip, wifi_AIoT.get_AIoT_IP().c_str());
+		lv_label_set_text(objects.ui_lab_dns, wifi_AIoT.get_AIoT_DNS().c_str());
+		lv_label_set_text(objects.ui_lab_mac, wifi_AIoT.get_AIoT_MAC().c_str());
+		lv_obj_set_style_bg_color(objects.bt_conectado_2, lv_color_hex(0x008000), LV_PART_MAIN | LV_STATE_DEFAULT);
+		lv_obj_set_style_bg_color(objects.bt_conectado_3, lv_color_hex(0x008000), LV_PART_MAIN | LV_STATE_DEFAULT);
+	} else {
+		lv_label_set_text(objects.ui_lab_ssid, "xx.xx.xx.xx");
+		lv_label_set_text(objects.ui_lab_ip, "xx.xx.xx.xx");
+		lv_label_set_text(objects.ui_lab_dns, "xx.xx.xx.xx");
+		lv_label_set_text(objects.ui_lab_mac, "xx:xx:xx:xx:xx:xx");
+		lv_obj_set_style_bg_color(objects.bt_conectado_2, lv_color_hex(0xFF0000), LV_PART_MAIN | LV_STATE_DEFAULT);
+		lv_obj_set_style_bg_color(objects.bt_conectado_3, lv_color_hex(0xFF0000), LV_PART_MAIN | LV_STATE_DEFAULT);
+	}
+}
+
+extern void action_fn_desconectar_wi_fi(lv_event_t * e)
+{
+	lv_label_set_text(objects.ui_lab_ssid, "xx.xx.xx.xx");
+	lv_label_set_text(objects.ui_lab_ip, "xx.xx.xx.xx");
+	lv_label_set_text(objects.ui_lab_dns, "xx.xx.xx.xx");
+	lv_label_set_text(objects.ui_lab_mac, "xx:xx:xx:xx:xx:xx");
+	lv_obj_set_style_bg_color(objects.bt_conectado_2, lv_color_hex(0xFF0000), LV_PART_MAIN | LV_STATE_DEFAULT);
+	lv_obj_set_style_bg_color(objects.bt_conectado_3, lv_color_hex(0xFF0000), LV_PART_MAIN | LV_STATE_DEFAULT);
+	wifi_AIoT.ConectarWiFi_AIoT();
+}
+
+extern void action_fn_rescan_wi_fi(lv_event_t * e)
+{
+	lv_label_set_text(objects.ui_lab_ssid, "xx.xx.xx.xx");
+	lv_label_set_text(objects.ui_lab_ip, "xx.xx.xx.xx");
+	lv_label_set_text(objects.ui_lab_dns, "xx.xx.xx.xx");
+	lv_label_set_text(objects.ui_lab_mac, "xx:xx:xx:xx:xx:xx");
+	lv_obj_set_style_bg_color(objects.bt_conectado_2, lv_color_hex(0xFF0000), LV_PART_MAIN | LV_STATE_DEFAULT);
+	lv_obj_set_style_bg_color(objects.bt_conectado_3, lv_color_hex(0xFF0000), LV_PART_MAIN | LV_STATE_DEFAULT);
 }
