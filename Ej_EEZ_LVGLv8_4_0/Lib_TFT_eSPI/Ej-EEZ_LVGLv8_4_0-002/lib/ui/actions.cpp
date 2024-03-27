@@ -76,7 +76,7 @@ extern void action_fn_conectar_wi_fi(lv_event_t * e)
 		lv_obj_set_style_bg_color(objects.bt_conectado_2, lv_color_hex(0x008000), LV_PART_MAIN | LV_STATE_DEFAULT);
 		lv_obj_set_style_bg_color(objects.bt_conectado_3, lv_color_hex(0x008000), LV_PART_MAIN | LV_STATE_DEFAULT);
 	} else {
-		lv_label_set_text(objects.ui_lab_ssid, "xx.xx.xx.xx");
+		lv_label_set_text(objects.ui_lab_ssid, "Nombre WiFi (SSID)");
 		lv_label_set_text(objects.ui_lab_ip, "xx.xx.xx.xx");
 		lv_label_set_text(objects.ui_lab_dns, "xx.xx.xx.xx");
 		lv_label_set_text(objects.ui_lab_mac, "xx:xx:xx:xx:xx:xx");
@@ -87,7 +87,7 @@ extern void action_fn_conectar_wi_fi(lv_event_t * e)
 
 extern void action_fn_desconectar_wi_fi(lv_event_t * e)
 {
-	lv_label_set_text(objects.ui_lab_ssid, "xx.xx.xx.xx");
+	lv_label_set_text(objects.ui_lab_ssid, "Nombre WiFi (SSID)");
 	lv_label_set_text(objects.ui_lab_ip, "xx.xx.xx.xx");
 	lv_label_set_text(objects.ui_lab_dns, "xx.xx.xx.xx");
 	lv_label_set_text(objects.ui_lab_mac, "xx:xx:xx:xx:xx:xx");
