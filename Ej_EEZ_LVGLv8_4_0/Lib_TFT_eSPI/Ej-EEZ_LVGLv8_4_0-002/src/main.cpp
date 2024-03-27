@@ -3,8 +3,6 @@
 #include "io_service.h"
 #include "tp_service.h"
 #include "config.h"
-// #include "DateTime_AIoT.h"
-// #include "screens.h"
 
 TaskHandle_t Task1 = NULL;
 TaskHandle_t Task2 = NULL;

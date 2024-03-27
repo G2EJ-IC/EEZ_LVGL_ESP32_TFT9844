@@ -1,5 +1,5 @@
-#ifndef __CONECTARWIFI_AIOT_H__
-#define __CONECTARWIFI_AIOT_H__
+#ifndef __SRC_CONECTARWIFI_AIOT_H__
+#define __SRC_CONECTARWIFI_AIOT_H__
 
 #include <Arduino.h>
 #include <WiFiManager.h>
@@ -25,4 +25,4 @@ public:
     wl_status_t ICACHE_FLASH_ATTR AIoT_status_get(void);
 };
 
-#endif // __CONECTARWIFI_AIOT_H__
+#endif // __SRC_CONECTARWIFI_AIOT_H__

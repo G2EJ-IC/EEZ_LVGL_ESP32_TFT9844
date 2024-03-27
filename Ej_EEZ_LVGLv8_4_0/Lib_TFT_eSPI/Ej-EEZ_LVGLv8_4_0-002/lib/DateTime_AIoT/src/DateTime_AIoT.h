@@ -1,5 +1,5 @@
-#ifndef __DATETIME_AIOT_H__
-#define __DATETIME_AIOT_H__
+#ifndef __SRC_DATETIME_AIOT_H__
+#define __SRC_DATETIME_AIOT_H__
 
 class dhms_AIoT
 {
@@ -11,4 +11,4 @@ public:
     String ICACHE_FLASH_ATTR DHMS_AIoT_get(unsigned long long);     
 };
 
-#endif // __DATETIME_AIOT_H__
+#endif // __SRC_DATETIME_AIOT_H__

@@ -11,7 +11,7 @@ typedef struct _objects_t {
     lv_obj_t *main1;
     lv_obj_t *main2;
     lv_obj_t *main3;
-    lv_obj_t *bt_conectado_wi_fi;
+    lv_obj_t *bt_conectado_2;
     lv_obj_t *bt_dhms_1;
     lv_obj_t *bt_dhms_2;
     lv_obj_t *bt_dhms_3;
@@ -32,6 +32,10 @@ typedef struct _objects_t {
     lv_obj_t *label_dhms_1;
     lv_obj_t *label_dhms_2;
     lv_obj_t *label_dhms_3;
+    lv_obj_t *label_direccion_dns;
+    lv_obj_t *label_direccion_ip;
+    lv_obj_t *label_direccion_mac;
+    lv_obj_t *label_red_wi_fi_ssid;
     lv_obj_t *panel_main1;
     lv_obj_t *panel_main1_1;
     lv_obj_t *panel_main1_2;
@@ -43,6 +47,10 @@ typedef struct _objects_t {
     lv_obj_t *panel03_1;
     lv_obj_t *panel03_2;
     lv_obj_t *panel03_3;
+    lv_obj_t *ui_lab_dns;
+    lv_obj_t *ui_lab_ip;
+    lv_obj_t *ui_lab_mac;
+    lv_obj_t *ui_lab_ssid;
 } objects_t;
 
 extern objects_t objects;
