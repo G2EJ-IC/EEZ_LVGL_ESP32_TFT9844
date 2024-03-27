@@ -8,7 +8,7 @@ private:
 public:
     dhms_AIoT();
     ~dhms_AIoT();
-    String ICACHE_FLASH_ATTR DHMS_AIoT(unsigned long long);     
+    String ICACHE_FLASH_ATTR DHMS_AIoT_get(unsigned long long);     
 };
 
 #endif // __DATETIME_AIOT_H__

@@ -95,27 +95,27 @@ void ICACHE_FLASH_ATTR WiFi_AIoT::ConectarWiFi_AIoT(void) {
     }
 }
 
-String ICACHE_FLASH_ATTR WiFi_AIoT::AIoT_SSID(void)
+String ICACHE_FLASH_ATTR WiFi_AIoT::AIoT_SSID_get(void)
 {
     return wifiManager.getWiFiSSID();
 }
 
-String ICACHE_FLASH_ATTR WiFi_AIoT::AIoT_PWD(void)
+String ICACHE_FLASH_ATTR WiFi_AIoT::AIoT_PWD_get(void)
 {
     return wifiManager.getWiFiPass();
 }
 
-String ICACHE_FLASH_ATTR WiFi_AIoT::AIoT_IP(void)
+String ICACHE_FLASH_ATTR WiFi_AIoT::AIoT_IP_get(void)
 {
     return WiFi.localIP().toString();
 }
 
-String ICACHE_FLASH_ATTR WiFi_AIoT::AIoT_DNS(void)
+String ICACHE_FLASH_ATTR WiFi_AIoT::AIoT_DNS_get(void)
 {
     return WiFi.dnsIP().toString();
 }
 
-String ICACHE_FLASH_ATTR WiFi_AIoT::AIoT_MAC(void)
+String ICACHE_FLASH_ATTR WiFi_AIoT::AIoT_MAC_get(void)
 {
     return WiFi.macAddress();
 }

@@ -23,7 +23,7 @@ static void lv_spinbox_decrement_event_cb(lv_event_t * e)
 
 void lv_spinbox(void)
 {   
-    spinbox = lv_spinbox_create(objects.panel03_01);
+    spinbox = lv_spinbox_create(objects.panel03_1);
     lv_spinbox_set_range(spinbox, 0, 1000);
     lv_spinbox_set_digit_format(spinbox, 5, 2);
     lv_spinbox_step_prev(spinbox);

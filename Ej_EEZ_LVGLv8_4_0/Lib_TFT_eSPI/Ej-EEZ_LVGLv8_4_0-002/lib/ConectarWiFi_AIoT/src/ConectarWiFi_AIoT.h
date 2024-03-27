@@ -14,12 +14,12 @@ public:
     void ICACHE_FLASH_ATTR DisconnectWiFi_AIoT(void);
     void ICACHE_FLASH_ATTR ConectarWiFi_AIoT(void);
 
-    String ICACHE_FLASH_ATTR AIoT_SSID(void);
-    String ICACHE_FLASH_ATTR AIoT_PWD(void);
+    String ICACHE_FLASH_ATTR AIoT_SSID_get(void);
+    String ICACHE_FLASH_ATTR AIoT_PWD_get(void);
 
-    String ICACHE_FLASH_ATTR AIoT_IP(void);
-    String ICACHE_FLASH_ATTR AIoT_DNS(void);
-    String ICACHE_FLASH_ATTR AIoT_MAC(void);
+    String ICACHE_FLASH_ATTR AIoT_IP_get(void);
+    String ICACHE_FLASH_ATTR AIoT_DNS_get(void);
+    String ICACHE_FLASH_ATTR AIoT_MAC_get(void);
 };
 
 #endif // __CONECTARWIFI_AIOT_H__

@@ -140,9 +140,9 @@ void create_screen_main1() {
             {
                 lv_obj_t *parent_obj = obj;
                 {
-                    // Panel01_01
+                    // Panel01_1
                     lv_obj_t *obj = lv_obj_create(parent_obj);
-                    objects.panel01_01 = obj;
+                    objects.panel01_1 = obj;
                     lv_obj_set_pos(obj, -10, -10);
                     lv_obj_set_size(obj, LV_PCT(105), LV_PCT(20));
                     lv_obj_clear_flag(obj, LV_OBJ_FLAG_SCROLLABLE);
@@ -218,9 +218,9 @@ void create_screen_main1() {
                     }
                 }
                 {
-                    // Panel02_01
+                    // Panel02_1
                     lv_obj_t *obj = lv_obj_create(parent_obj);
-                    objects.panel02_01 = obj;
+                    objects.panel02_1 = obj;
                     lv_obj_set_pos(obj, -10, 50);
                     lv_obj_set_size(obj, LV_PCT(105), LV_PCT(20));
                     lv_obj_clear_flag(obj, LV_OBJ_FLAG_SCROLLABLE);
@@ -285,9 +285,9 @@ void create_screen_main1() {
                     }
                 }
                 {
-                    // Panel03_01
+                    // Panel03_1
                     lv_obj_t *obj = lv_obj_create(parent_obj);
-                    objects.panel03_01 = obj;
+                    objects.panel03_1 = obj;
                     lv_obj_set_pos(obj, -10, 110);
                     lv_obj_set_size(obj, LV_PCT(105), LV_PCT(65));
                     lv_obj_clear_flag(obj, LV_OBJ_FLAG_SCROLLABLE);
@@ -359,9 +359,9 @@ void create_screen_main2() {
             {
                 lv_obj_t *parent_obj = obj;
                 {
-                    // Panel01_02
+                    // Panel01_2
                     lv_obj_t *obj = lv_obj_create(parent_obj);
-                    objects.panel01_02 = obj;
+                    objects.panel01_2 = obj;
                     lv_obj_set_pos(obj, -10, -10);
                     lv_obj_set_size(obj, LV_PCT(105), LV_PCT(20));
                     lv_obj_clear_flag(obj, LV_OBJ_FLAG_SCROLLABLE);
@@ -437,9 +437,9 @@ void create_screen_main2() {
                     }
                 }
                 {
-                    // Panel02_02
+                    // Panel02_2
                     lv_obj_t *obj = lv_obj_create(parent_obj);
-                    objects.panel02_02 = obj;
+                    objects.panel02_2 = obj;
                     lv_obj_set_pos(obj, -10, 50);
                     lv_obj_set_size(obj, LV_PCT(105), LV_PCT(20));
                     lv_obj_clear_flag(obj, LV_OBJ_FLAG_SCROLLABLE);
@@ -504,9 +504,9 @@ void create_screen_main2() {
                     }
                 }
                 {
-                    // Panel03_02
+                    // Panel03_2
                     lv_obj_t *obj = lv_obj_create(parent_obj);
-                    objects.panel03_02 = obj;
+                    objects.panel03_2 = obj;
                     lv_obj_set_pos(obj, -10, 110);
                     lv_obj_set_size(obj, LV_PCT(105), LV_PCT(65));
                     lv_obj_clear_flag(obj, LV_OBJ_FLAG_SCROLLABLE);
@@ -578,9 +578,9 @@ void create_screen_main3() {
             {
                 lv_obj_t *parent_obj = obj;
                 {
-                    // Panel01_2
+                    // Panel01_3
                     lv_obj_t *obj = lv_obj_create(parent_obj);
-                    objects.panel01_2 = obj;
+                    objects.panel01_3 = obj;
                     lv_obj_set_pos(obj, -10, -10);
                     lv_obj_set_size(obj, LV_PCT(105), LV_PCT(20));
                     lv_obj_clear_flag(obj, LV_OBJ_FLAG_SCROLLABLE);
@@ -656,9 +656,9 @@ void create_screen_main3() {
                     }
                 }
                 {
-                    // Panel03_2
+                    // Panel03_3
                     lv_obj_t *obj = lv_obj_create(parent_obj);
-                    objects.panel03_2 = obj;
+                    objects.panel03_3 = obj;
                     lv_obj_set_pos(obj, -10, 51);
                     lv_obj_set_size(obj, LV_PCT(105), LV_PCT(87));
                     lv_obj_clear_flag(obj, LV_OBJ_FLAG_SCROLLABLE);

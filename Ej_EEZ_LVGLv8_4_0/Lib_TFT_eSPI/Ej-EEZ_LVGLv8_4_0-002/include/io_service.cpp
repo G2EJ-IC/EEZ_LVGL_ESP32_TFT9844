@@ -91,7 +91,7 @@ void ICACHE_FLASH_ATTR io_service::memoria_ESP(void)
 
 void ICACHE_FLASH_ATTR io_service::cronometro(uint32_t Ahora)
 {
-    String DHMS = DateTime.DHMS_AIoT((uint64_t)(Ahora));
+    String DHMS = DateTime.DHMS_AIoT_get((uint64_t)(Ahora));
     lv_label_set_text(objects.label_dhms_1, String(DHMS).c_str());
     lv_label_set_text(objects.label_dhms_2, String(DHMS).c_str());
     lv_label_set_text(objects.label_dhms_3, String(DHMS).c_str());

@@ -35,14 +35,14 @@ typedef struct _objects_t {
     lv_obj_t *panel_main1;
     lv_obj_t *panel_main1_1;
     lv_obj_t *panel_main1_2;
-    lv_obj_t *panel01_01;
-    lv_obj_t *panel01_02;
+    lv_obj_t *panel01_1;
     lv_obj_t *panel01_2;
-    lv_obj_t *panel02_01;
-    lv_obj_t *panel02_02;
-    lv_obj_t *panel03_01;
-    lv_obj_t *panel03_02;
+    lv_obj_t *panel01_3;
+    lv_obj_t *panel02_1;
+    lv_obj_t *panel02_2;
+    lv_obj_t *panel03_1;
     lv_obj_t *panel03_2;
+    lv_obj_t *panel03_3;
 } objects_t;
 
 extern objects_t objects;

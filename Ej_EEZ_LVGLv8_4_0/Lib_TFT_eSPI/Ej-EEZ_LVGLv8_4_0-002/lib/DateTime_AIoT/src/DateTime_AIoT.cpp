@@ -7,7 +7,7 @@
 
 /* =============================icache functions========================= */
 
-String dhms_AIoT::DHMS_AIoT(unsigned long long mSegT) {
+String dhms_AIoT::DHMS_AIoT_get(unsigned long long mSegT) {
   char DHMS[25];
 
   int SubSEG = mSegT % 1000ULL; // 1000ULL

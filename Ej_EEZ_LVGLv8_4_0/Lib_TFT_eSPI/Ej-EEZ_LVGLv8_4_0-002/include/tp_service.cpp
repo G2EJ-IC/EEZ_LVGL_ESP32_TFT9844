@@ -37,7 +37,7 @@ void ICACHE_FLASH_ATTR tp_service::lv_no_sleep(uint32_t lv_sleep)
         Serial.println();
         // Serial.print(lv_disp_get_inactive_time(NULL));
         uint32_t Ahora = lv_disp_get_inactive_time(NULL);
-        String DHMS = DateTimeAhora.DHMS_AIoT((uint64_t)(Ahora));
+        String DHMS = DateTimeAhora.DHMS_AIoT_get((uint64_t)(Ahora));
         Serial.printf("%u mSeg - %s",Ahora, DHMS);
         digitalWrite(PIN_BL, LOW);
         Serial.println();
