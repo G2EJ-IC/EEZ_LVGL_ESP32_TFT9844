@@ -14,7 +14,6 @@ inline Print &operator <<(Print &obj, T arg) {
 #include <WiFi.h>
 #include <WebServer.h>
 #include <DNSServer.h>
-#include <WiFiManager.h>
 
 //Instancia de la Clase WiFiManager.
 WiFiManager wifiManager;
@@ -118,4 +117,9 @@ String ICACHE_FLASH_ATTR WiFi_AIoT::AIoT_DNS_get(void)
 String ICACHE_FLASH_ATTR WiFi_AIoT::AIoT_MAC_get(void)
 {
     return WiFi.macAddress();
+}
+
+wl_status_t ICACHE_FLASH_ATTR WiFi_AIoT::AIoT_status_get(void)
+{
+    return WiFi.status();
 }

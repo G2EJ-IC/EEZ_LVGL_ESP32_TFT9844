@@ -2,6 +2,7 @@
 #define __CONECTARWIFI_AIOT_H__
 
 #include <Arduino.h>
+#include <WiFiManager.h>
 
 class WiFi_AIoT
 {
@@ -20,6 +21,8 @@ public:
     String ICACHE_FLASH_ATTR AIoT_IP_get(void);
     String ICACHE_FLASH_ATTR AIoT_DNS_get(void);
     String ICACHE_FLASH_ATTR AIoT_MAC_get(void);
+
+    wl_status_t ICACHE_FLASH_ATTR AIoT_status_get(void);
 };
 
 #endif // __CONECTARWIFI_AIOT_H__
