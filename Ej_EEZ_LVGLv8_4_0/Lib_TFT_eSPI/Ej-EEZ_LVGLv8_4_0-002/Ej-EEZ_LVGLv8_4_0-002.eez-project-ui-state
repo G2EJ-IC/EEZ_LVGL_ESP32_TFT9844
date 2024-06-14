@@ -184,10 +184,21 @@
               "type": "tabset",
               "id": "EDITORS",
               "weight": 45.98627781269641,
-              "selected": 1,
               "enableDeleteWhenEmpty": false,
               "enableClose": false,
               "children": [
+                {
+                  "type": "tab",
+                  "id": "#3bd87cca-1ac1-4303-8695-93daf7c447ed",
+                  "name": "Settings",
+                  "component": "editor",
+                  "config": {
+                    "objectPath": "[Ej-EEZ_LVGLv8_4_0-002.eez-project]:/settings",
+                    "subObjectPath": "[Ej-EEZ_LVGLv8_4_0-002.eez-project]:/settings",
+                    "permanent": false
+                  },
+                  "icon": "material:settings"
+                },
                 {
                   "type": "tab",
                   "id": "#d41a99ac-471c-49af-9e93-532488eef3f8",
@@ -343,41 +354,18 @@
           "id": "#c62eefb5-e7a5-4569-9295-357028aa4413",
           "children": [
             {
-              "type": "row",
-              "id": "#16a0c558-a965-43f9-b2fa-6b3b3682779b",
+              "type": "tabset",
+              "id": "#42ea43d6-019d-41aa-aa40-b543e44dce41",
               "weight": 20,
+              "enableClose": false,
               "children": [
                 {
-                  "type": "tabset",
-                  "id": "#42ea43d6-019d-41aa-aa40-b543e44dce41",
-                  "weight": 1,
+                  "type": "tab",
+                  "id": "iext",
+                  "name": "IEXT",
+                  "component": "extension-definitions",
                   "enableClose": false,
-                  "children": [
-                    {
-                      "type": "tab",
-                      "id": "iext",
-                      "name": "IEXT",
-                      "component": "extension-definitions",
-                      "enableClose": false,
-                      "icon": "material:extension"
-                    }
-                  ]
-                },
-                {
-                  "type": "tabset",
-                  "id": "#cfac2df7-0607-4af4-b4d2-9256a28b7fc5",
-                  "weight": 5,
-                  "enableClose": false,
-                  "children": [
-                    {
-                      "type": "tab",
-                      "id": "scpi",
-                      "name": "SCPI",
-                      "component": "scpi",
-                      "enableClose": false,
-                      "icon": "material:navigate_next"
-                    }
-                  ]
+                  "icon": "material:extension"
                 }
               ]
             },
@@ -963,13 +951,7 @@
     "[Ej-EEZ_LVGLv8_4_0-002.eez-project]:/userPages/0[flow-state]": {
       "selection": {
         "0": {
-          "0": {},
-          "1": {
-            "2": {}
-          },
-          "2": {
-            "1": {}
-          }
+          "0": {}
         }
       },
       "transform": {
@@ -989,16 +971,7 @@
     "[Ej-EEZ_LVGLv8_4_0-002.eez-project]:/userPages/1[flow-state]": {
       "selection": {
         "0": {
-          "0": {},
-          "1": {
-            "0": {},
-            "1": {}
-          },
-          "2": {
-            "1": {},
-            "8": {},
-            "9": {}
-          }
+          "0": {}
         }
       },
       "transform": {
@@ -1018,13 +991,7 @@
     "[Ej-EEZ_LVGLv8_4_0-002.eez-project]:/userPages/2[flow-state]": {
       "selection": {
         "0": {
-          "0": {},
-          "1": {
-            "0": {}
-          },
-          "2": {
-            "0": {}
-          }
+          "0": {}
         }
       },
       "transform": {
