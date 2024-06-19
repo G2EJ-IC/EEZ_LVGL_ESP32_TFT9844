@@ -1,6 +1,6 @@
 {
   "navigation": {
-    "selectedUserPageObject": "[Ej-EEZ_LVGLv8_4_0-002.eez-project]:/userPages/2",
+    "selectedUserPageObject": "[Ej-EEZ_LVGLv8_4_0-002.eez-project]:/userPages/0",
     "selectedActionObject": "[Ej-EEZ_LVGLv8_4_0-002.eez-project]:/actions/10",
     "selectedBitmapObject": "[Ej-EEZ_LVGLv8_4_0-002.eez-project]:/bitmaps/0",
     "subnavigationSelectedItems": {
@@ -184,6 +184,7 @@
               "type": "tabset",
               "id": "EDITORS",
               "weight": 45.98627781269641,
+              "selected": 4,
               "enableDeleteWhenEmpty": false,
               "enableClose": false,
               "children": [
