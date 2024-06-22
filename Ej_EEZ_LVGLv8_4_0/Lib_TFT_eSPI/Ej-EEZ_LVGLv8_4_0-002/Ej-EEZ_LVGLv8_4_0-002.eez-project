@@ -105,7 +105,7 @@
       ],
       "destinationFolder": "lib\\ui",
       "lvglInclude": "lvgl.h",
-      "generateSourceCodeForEezFramework": false,
+      "generateSourceCodeForEezFramework": true,
       "compressFlowDefinition": false,
       "executionQueueSize": 1000,
       "expressionEvaluatorStackSize": 20
