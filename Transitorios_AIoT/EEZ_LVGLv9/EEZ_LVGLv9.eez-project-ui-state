@@ -253,7 +253,8 @@
                     "_owner": null
                   }
                 }
-              ]
+              ],
+              "active": true
             },
             {
               "type": "row",
@@ -288,8 +289,7 @@
                       "enableClose": false,
                       "icon": "svg:components"
                     }
-                  ],
-                  "active": true
+                  ]
                 }
               ]
             }
