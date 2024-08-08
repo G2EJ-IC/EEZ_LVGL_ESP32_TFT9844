@@ -1,32 +1,39 @@
 #include <Arduino.h>
 #include <lvgl.h>
-#include "config.h"
-#include <SPI.h>
-#include <TFT_eSPI.h>
+#include "LovyanGFX_Class_ILI9488.h"
 #include "display_service.h"
 #include "tp_service.h"
 #include "esp_freertos_hooks.h"
 #include "ui.h"
 
+static LGFX tft;      // load tft service
+extern tp_service tp; // load tp service
+
 display_service::display_service() {}
 display_service::~display_service() {}
 
+/* #define DISP_STATE_INIT_WAIT_TIME (2000u)
+#define DISP_STATE_WIFI_SSID_SCANNED_DONE_TIME (1000u)
+#define WIFI_CONNECT_MAX_RETRY (5u)
+
 /*Change to your screen resolution*/
-static const uint16_t N = 10u; // N = {10, 12, 16, 20, 24, 25, 32}
+static const uint16_t screenWidth  = 480;
+static const uint16_t screenHeight = 320;
+static const uint16_t N = 12u; // N = {10, 12, 15, 16, 20, 24, 25, 32}
 
-// extern TFT_eSPI tft = TFT_eSPI(); /* TFT instance */
-TFT_eSPI tft = TFT_eSPI(LV_HOR_RES_MAX, LV_VER_RES_MAX); /* TFT instance */
-extern tp_service tp; // load tp service
+enum { SCREENBUFFER_SIZE_PIXELS = (screenWidth * screenHeight / N) * (LV_COLOR_DEPTH / 8) };
+static lv_color_t buf [SCREENBUFFER_SIZE_PIXELS];
+uint32_t draw_buf[SCREENBUFFER_SIZE_PIXELS / 4];
 
-static lv_disp_draw_buf_t draw_buf;
-
-#if (BUF_NUM == 1)
 /*LVGL draw into this buffer, 1/10 screen size usually works well. The size is in bytes*/
-#define DRAW_BUF_SIZE (LV_HOR_RES_MAX * LV_VER_RES_MAX / N * (LV_COLOR_DEPTH / 8))
-static lv_color_t buf1[DRAW_BUF_SIZE / 4];
-#elif (BUF_NUM == 2)
-static lv_color_t buf2[DRAW_BUF_SIZE / 4];
-#endif
+unsigned long lastTickMillis = 0;
+
+static lv_display_t *disp;
+
+#define DRAW_BUF_SIZE (TFT_HOR_RES * TFT_VER_RES / 10 * (LV_COLOR_DEPTH / 8))
+
+/*Set tick routine needed for LVGL internal timings*/
+inline static uint32_t my_tick_get_cb (void){ return millis(); }
 
 /* =============================icache functions========================= */
 void ICACHE_FLASH_ATTR display_service::lv_setup()
@@ -34,10 +41,10 @@ void ICACHE_FLASH_ATTR display_service::lv_setup()
     lv_init();
     tft.begin();                /* TFT init */
     tft.setRotation(ROTATION);  /* Landscape orientation, flipped */
-    String LVGL_Arduino = "\n\nHello Arduino! ";
+    String LVGL_Arduino = "Hello Arduino! ";
     LVGL_Arduino += String('V') + lv_version_major() + "." + lv_version_minor() + "." + lv_version_patch();
     Serial.println(LVGL_Arduino);
-    Serial.println("I am LVGL_Arduino\n");
+    Serial.println("I am LVGL_Arduino");
 
 #if LV_USE_LOG != 0
     /* Serial debugging */
@@ -56,66 +63,81 @@ void ICACHE_FLASH_ATTR display_service::lv_setup()
 void ICACHE_FLASH_ATTR display_service::touch_setup()
 {
     tp.setup();         /* TFT setup*/
+    Serial.begin( 115200 ); /* prepare for possible serial debug */
 
     //************************************************************************************************
     // tft.setBrightness(255);
-    // uint16_t calData[5] = {X0, X1, Y0, Y1, rotate/invert_x/invert_y};
-
-    uint16_t calData[5] = {209, 3656, 209, 3499, 1}; //
-    tft.setTouch(calData);
-    // lv_init();
+    // uint16_t calData[] = { 120, 3120, 170, 170, 4880, 3030, 4770, 50};
+    uint16_t calData[] = {239, 3926, 233, 265, 3856, 3896, 3714, 308};
+    tft.setTouchCalibrate(calData);
+    lv_init();
     //************************************************************************************************
 
-#if (BUF_NUM == 1)
-    // lv_disp_buf_init(&disp_buf, buf1, NULL, DISP_BUF_SIZE);
-    lv_disp_draw_buf_init(&draw_buf, buf1, NULL, DRAW_BUF_SIZE / 4);
-#elif (BUF_NUM == 2)
-    lv_disp_buf_init(&draw_buf, buf1, buf2, DRAW_BUF_SIZE / 4);
+    String LVGL_Arduino = "Hello Arduino! ";
+    LVGL_Arduino += String('V') + lv_version_major() + "." + lv_version_minor() + "." + lv_version_patch();
+
+    Serial.println( LVGL_Arduino );
+    Serial.println( "I am LVGL_Arduino" );
+
+    lv_init();
+
+#if LV_USE_LOG != 0
+    lv_log_register_print_cb( my_print ); /* register print function for debugging */
 #endif
 
-    /*Initialize the display*/
-    static lv_disp_drv_t disp_drv;
-    lv_disp_drv_init(&disp_drv);
-    /*Change the following line to your display resolution*/
-    disp_drv.hor_res = LV_HOR_RES_MAX;
-    disp_drv.ver_res = LV_VER_RES_MAX;
-    disp_drv.flush_cb = my_disp_flush;
-    disp_drv.draw_buf = &draw_buf;
-    lv_disp_drv_register(&disp_drv);
+    tft.begin();          /* TFT init */
+    tft.setRotation( 3 ); /* Landscape orientation, flipped */
 
-    /*Initialize the (dummy) input device driver*/
-    static lv_indev_drv_t indev_drv;
-    lv_indev_drv_init(&indev_drv);
-    indev_drv.type = LV_INDEV_TYPE_POINTER;
-    indev_drv.read_cb = my_touchpad_read;
-    lv_indev_drv_register(&indev_drv);
+    static lv_disp_t* disp;
+    disp = lv_display_create( screenWidth, screenHeight );
+    lv_display_set_buffers( disp, buf, NULL, SCREENBUFFER_SIZE_PIXELS * sizeof(lv_color_t), LV_DISPLAY_RENDER_MODE_PARTIAL );
+    lv_display_set_flush_cb( disp, my_disp_flush );
+
+    static lv_indev_t* indev;
+    indev = lv_indev_create();
+    lv_indev_set_type( indev, LV_INDEV_TYPE_POINTER );
+    lv_indev_set_read_cb( indev, my_touchpad_read );
+
+    lv_tick_set_cb( my_tick_get_cb );
 
     ui_init();
 
-    Serial.println("Setup done");
+    Serial.println( "Setup done" );
 }
 
 void IRAM_ATTR display_service::lv_main()
 {
-    Serial.print(F("\n\n[INFO] LV GUI started.\n"));
+    Serial.print(F("[INFO] LV GUI started.\n"));
+    // header_create();
+    // body_create();
 }
 
-void IRAM_ATTR display_service::my_disp_flush(lv_disp_drv_t *disp, const lv_area_t *area, lv_color_t *color_p)
+/* Display flushing */
+void display_service::my_disp_flush (lv_display_t *disp, const lv_area_t *area, uint8_t *pixelmap)
 {
-    uint32_t w = (area->x2 - area->x1 + 1);
-    uint32_t h = (area->y2 - area->y1 + 1);
+    uint32_t w = ( area->x2 - area->x1 + 1 );
+    uint32_t h = ( area->y2 - area->y1 + 1 );
+
+    if (LV_COLOR_16_SWAP) {
+        size_t len = lv_area_get_size( area );
+        lv_draw_sw_rgb565_swap( pixelmap, len );
+    }
+
     tft.startWrite();
-    tft.setAddrWindow(area->x1, area->y1, w, h);
-    tft.pushColors( ( uint16_t * )&color_p->full, w * h, true );
+    tft.setAddrWindow( area->x1, area->y1, w, h);
+    tft.pushColors( (uint16_t*) pixelmap, w * h, true );
     tft.endWrite();
-    lv_disp_flush_ready(disp);
+
+    lv_disp_flush_ready( disp );
 }
 
-void IRAM_ATTR display_service::my_touchpad_read(lv_indev_drv_t *indev_driver, lv_indev_data_t *data)
+/*Read the touchpad*/
+void display_service::my_touchpad_read (lv_indev_t * indev_driver, lv_indev_data_t * data)
 {
     uint16_t touchX = 0, touchY = 0;
 
-    bool touched = tft.getTouch(&touchX, &touchY, 600);
+    // bool touched = false;//tft.getTouch(&touchX, &touchY, 600);
+    bool touched = tft.getTouch(&touchX, &touchY, 0);
 
     if (!touched)
     {
@@ -129,11 +151,11 @@ void IRAM_ATTR display_service::my_touchpad_read(lv_indev_drv_t *indev_driver, l
         data->point.x = touchX;
         data->point.y = touchY;
 
-        Serial.print("Data x ");
-        Serial.println(touchX);
+        Serial.print( "Data x " );
+        Serial.println( touchX );
 
-        Serial.print("Data y ");
-        Serial.println(touchY);
+        Serial.print( "Data y " );
+        Serial.println( touchY );
     }
 }
 
@@ -141,7 +163,6 @@ void IRAM_ATTR display_service::my_touchpad_read(lv_indev_drv_t *indev_driver, l
 void ICACHE_FLASH_ATTR display_service::setup()
 {
     lv_setup();
-    lv_task_handler();
     // esp_register_freertos_tick_hook(lv_tick_task);
 
     Serial.print(F("[INFO] Display GUI setup finished! \n"));
@@ -154,5 +175,4 @@ void IRAM_ATTR display_service::loop()
     lv_timer_handler(); /* let the GUI do its work */
     // ui_tick();
     vTaskDelay(pdMS_TO_TICKS(5)); // delay( 5 );
-    
-} // end loop
+} // end loop */

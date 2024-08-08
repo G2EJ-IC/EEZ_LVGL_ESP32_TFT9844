@@ -29,6 +29,9 @@ typedef struct _objects_t {
     lv_obj_t *label_direccion_ip;
     lv_obj_t *label_direccion_mac;
     lv_obj_t *label_red_wi_fi_ssid;
+    lv_obj_t *pag1;
+    lv_obj_t *pag2;
+    lv_obj_t *pag3;
     lv_obj_t *panel02_1;
     lv_obj_t *panel02_2;
     lv_obj_t *panel02_3;
