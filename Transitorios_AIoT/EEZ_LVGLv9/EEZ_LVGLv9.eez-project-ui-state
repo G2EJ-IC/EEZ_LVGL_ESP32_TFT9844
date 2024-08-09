@@ -2,7 +2,6 @@
   "navigation": {
     "selectedUserPageObject": "[EEZ_LVGLv9.eez-project]:/userPages/0",
     "selectedActionObject": "[EEZ_LVGLv9.eez-project]:/actions/4",
-    "selectedBitmapObject": "[EEZ_LVGLv9.eez-project]:/bitmaps/-1",
     "subnavigationSelectedItems": {}
   },
   "layoutModel": {
@@ -989,17 +988,8 @@
       "selection": {
         "0": {
           "0": {
-            "1": {
-              "0": {
-                "1": {
-                  "8": {}
-                }
-              }
-            },
             "2": {
-              "0": {
-                "1": {}
-              }
+              "$selected": true
             }
           }
         }
