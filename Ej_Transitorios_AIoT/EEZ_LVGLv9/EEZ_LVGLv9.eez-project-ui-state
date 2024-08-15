@@ -124,7 +124,6 @@
                   "type": "tabset",
                   "id": "#1ccae658-5615-4741-b100-164c7fbe5d58",
                   "weight": 0.8405797101449275,
-                  "selected": 2,
                   "enableClose": false,
                   "children": [
                     {
@@ -190,7 +189,7 @@
             {
               "type": "tabset",
               "id": "EDITORS",
-              "weight": 67.05195424213537,
+              "weight": 58.78693994280267,
               "selected": 1,
               "enableDeleteWhenEmpty": false,
               "enableClose": false,
@@ -276,12 +275,12 @@
             {
               "type": "row",
               "id": "#73b9fa1d-527f-4c25-8d60-8cc8a118d2cf",
-              "weight": 17.948045757864634,
+              "weight": 26.213060057197332,
               "children": [
                 {
                   "type": "tabset",
                   "id": "#09621189-044a-4cbd-b7dc-7c6664777f2a",
-                  "weight": 2.3173076923076925,
+                  "weight": 1.6245487364620939,
                   "children": [
                     {
                       "type": "tab",
@@ -296,7 +295,7 @@
                 {
                   "type": "tabset",
                   "id": "#72ec5848-41f3-4521-b89d-d1c9cc581150",
-                  "weight": 0.6826923076923077,
+                  "weight": 1.3754512635379061,
                   "children": [
                     {
                       "type": "tab",
@@ -986,18 +985,11 @@
   "objects": {
     "[EEZ_LVGLv9.eez-project]:/userPages/0[flow-state]": {
       "selection": {
-        "0": {
-          "0": {
-            "0": {
-              "$selected": true
-            },
-            "2": {}
-          }
-        }
+        "0": {}
       },
       "transform": {
         "translate": {
-          "x": -368.625,
+          "x": -294.625,
           "y": -202.5
         },
         "scale": 1.25
