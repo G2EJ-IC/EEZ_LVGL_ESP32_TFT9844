@@ -159,6 +159,7 @@ void create_screen_main1() {
     objects.main1 = obj;
     lv_obj_set_pos(obj, 0, 0);
     lv_obj_set_size(obj, 480, 320);
+    lv_obj_clear_flag(obj, LV_OBJ_FLAG_SCROLLABLE);
     {
         lv_obj_t *parent_obj = obj;
         {
@@ -167,6 +168,7 @@ void create_screen_main1() {
             objects.panel_main1 = obj;
             lv_obj_set_pos(obj, 0, 0);
             lv_obj_set_size(obj, 480, 320);
+            lv_obj_clear_flag(obj, LV_OBJ_FLAG_SCROLLABLE);
             {
                 lv_obj_t *parent_obj = obj;
                 {
@@ -175,6 +177,7 @@ void create_screen_main1() {
                     objects.panel01_1 = obj;
                     lv_obj_set_pos(obj, -10, -10);
                     lv_obj_set_size(obj, LV_PCT(105), LV_PCT(20));
+                    lv_obj_clear_flag(obj, LV_OBJ_FLAG_SCROLLABLE);
                     lv_obj_set_style_bg_color(obj, lv_color_hex(0xffc8c8c8), LV_PART_MAIN | LV_STATE_DEFAULT);
                     lv_obj_set_style_border_color(obj, lv_color_hex(0xff000000), LV_PART_MAIN | LV_STATE_DEFAULT);
                     lv_obj_set_style_border_width(obj, 2, LV_PART_MAIN | LV_STATE_DEFAULT);
@@ -188,6 +191,8 @@ void create_screen_main1() {
                             lv_obj_set_pos(obj, 172, -5);
                             lv_obj_set_size(obj, LV_PCT(20), LV_PCT(150));
                             lv_obj_add_event_cb(obj, event_handler_cb_main1_bt_pagina_1, LV_EVENT_ALL, flowState);
+                            lv_obj_add_flag(obj, LV_OBJ_FLAG_SCROLL_ON_FOCUS);
+                            lv_obj_clear_flag(obj, LV_OBJ_FLAG_SCROLLABLE);
                             lv_obj_set_style_text_font(obj, &lv_font_montserrat_32, LV_PART_MAIN | LV_STATE_DEFAULT);
                             lv_obj_set_style_bg_color(obj, lv_color_hex(0xff000000), LV_PART_MAIN | LV_STATE_DEFAULT);
                             {
@@ -209,6 +214,8 @@ void create_screen_main1() {
                             lv_obj_set_pos(obj, -9, -5);
                             lv_obj_set_size(obj, LV_PCT(40), LV_PCT(150));
                             lv_obj_add_event_cb(obj, event_handler_cb_main1_bt_pagina_uno, LV_EVENT_ALL, flowState);
+                            lv_obj_add_flag(obj, LV_OBJ_FLAG_SCROLL_ON_FOCUS);
+                            lv_obj_clear_flag(obj, LV_OBJ_FLAG_SCROLLABLE);
                             {
                                 lv_obj_t *parent_obj = obj;
                                 {
@@ -227,6 +234,8 @@ void create_screen_main1() {
                             lv_obj_set_pos(obj, 268, -5);
                             lv_obj_set_size(obj, LV_PCT(40), LV_PCT(150));
                             lv_obj_add_event_cb(obj, event_handler_cb_main1_bt_pagina_dos_r, LV_EVENT_ALL, flowState);
+                            lv_obj_add_flag(obj, LV_OBJ_FLAG_SCROLL_ON_FOCUS);
+                            lv_obj_clear_flag(obj, LV_OBJ_FLAG_SCROLLABLE);
                             {
                                 lv_obj_t *parent_obj = obj;
                                 {
@@ -246,6 +255,7 @@ void create_screen_main1() {
                     objects.panel02_1 = obj;
                     lv_obj_set_pos(obj, -10, 50);
                     lv_obj_set_size(obj, LV_PCT(105), LV_PCT(20));
+                    lv_obj_clear_flag(obj, LV_OBJ_FLAG_SCROLLABLE);
                     lv_obj_set_style_bg_color(obj, lv_color_hex(0xffc8c8c8), LV_PART_MAIN | LV_STATE_DEFAULT);
                     lv_obj_set_style_border_color(obj, lv_color_hex(0xff000000), LV_PART_MAIN | LV_STATE_DEFAULT);
                     lv_obj_set_style_border_width(obj, 2, LV_PART_MAIN | LV_STATE_DEFAULT);
@@ -259,6 +269,8 @@ void create_screen_main1() {
                             lv_obj_set_pos(obj, -8, -5);
                             lv_obj_set_size(obj, LV_PCT(20), LV_PCT(150));
                             lv_obj_add_event_cb(obj, event_handler_cb_main1_bt_plus, LV_EVENT_ALL, flowState);
+                            lv_obj_add_flag(obj, LV_OBJ_FLAG_SCROLL_ON_FOCUS);
+                            lv_obj_clear_flag(obj, LV_OBJ_FLAG_SCROLLABLE);
                             lv_obj_set_style_text_font(obj, &lv_font_montserrat_32, LV_PART_MAIN | LV_STATE_DEFAULT);
                             {
                                 lv_obj_t *parent_obj = obj;
@@ -288,6 +300,8 @@ void create_screen_main1() {
                             lv_obj_set_pos(obj, 348, -5);
                             lv_obj_set_size(obj, LV_PCT(20), LV_PCT(150));
                             lv_obj_add_event_cb(obj, event_handler_cb_main1_bt_minus, LV_EVENT_ALL, flowState);
+                            lv_obj_add_flag(obj, LV_OBJ_FLAG_SCROLL_ON_FOCUS);
+                            lv_obj_clear_flag(obj, LV_OBJ_FLAG_SCROLLABLE);
                             {
                                 lv_obj_t *parent_obj = obj;
                                 {
@@ -308,6 +322,7 @@ void create_screen_main1() {
                     objects.panel03_1 = obj;
                     lv_obj_set_pos(obj, -10, 110);
                     lv_obj_set_size(obj, LV_PCT(105), LV_PCT(65));
+                    lv_obj_clear_flag(obj, LV_OBJ_FLAG_SCROLLABLE);
                     lv_obj_set_style_bg_color(obj, lv_color_hex(0xffc8c8c8), LV_PART_MAIN | LV_STATE_DEFAULT);
                     lv_obj_set_style_border_color(obj, lv_color_hex(0xff000000), LV_PART_MAIN | LV_STATE_DEFAULT);
                     lv_obj_set_style_border_width(obj, 2, LV_PART_MAIN | LV_STATE_DEFAULT);
@@ -329,6 +344,8 @@ void create_screen_main1() {
                             lv_obj_set_pos(obj, -10, 130);
                             lv_obj_set_size(obj, 200, 30);
                             lv_obj_add_event_cb(obj, event_handler_cb_main1_bt_dhms_1, LV_EVENT_ALL, flowState);
+                            lv_obj_add_flag(obj, LV_OBJ_FLAG_SCROLL_ON_FOCUS);
+                            lv_obj_clear_flag(obj, LV_OBJ_FLAG_CLICKABLE|LV_OBJ_FLAG_SCROLLABLE);
                             {
                                 lv_obj_t *parent_obj = obj;
                                 {
@@ -349,6 +366,8 @@ void create_screen_main1() {
                             lv_obj_set_pos(obj, 356, 43);
                             lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
                             lv_img_set_src(obj, &img_g2_ejv2);
+                            lv_obj_add_flag(obj, LV_OBJ_FLAG_ADV_HITTEST);
+                            lv_obj_clear_flag(obj, LV_OBJ_FLAG_SCROLLABLE);
                         }
                     }
                 }
@@ -367,6 +386,7 @@ void create_screen_main2() {
     objects.main2 = obj;
     lv_obj_set_pos(obj, 0, 0);
     lv_obj_set_size(obj, 480, 320);
+    lv_obj_clear_flag(obj, LV_OBJ_FLAG_SCROLLABLE);
     {
         lv_obj_t *parent_obj = obj;
         {
@@ -375,6 +395,7 @@ void create_screen_main2() {
             objects.panel_main1_1 = obj;
             lv_obj_set_pos(obj, 0, 0);
             lv_obj_set_size(obj, 480, 320);
+            lv_obj_clear_flag(obj, LV_OBJ_FLAG_SCROLLABLE);
             {
                 lv_obj_t *parent_obj = obj;
                 {
@@ -383,6 +404,7 @@ void create_screen_main2() {
                     objects.panel01_2 = obj;
                     lv_obj_set_pos(obj, -10, -10);
                     lv_obj_set_size(obj, LV_PCT(105), LV_PCT(20));
+                    lv_obj_clear_flag(obj, LV_OBJ_FLAG_SCROLLABLE);
                     lv_obj_set_style_bg_color(obj, lv_color_hex(0xffc8c8c8), LV_PART_MAIN | LV_STATE_DEFAULT);
                     lv_obj_set_style_border_color(obj, lv_color_hex(0xff000000), LV_PART_MAIN | LV_STATE_DEFAULT);
                     lv_obj_set_style_border_width(obj, 2, LV_PART_MAIN | LV_STATE_DEFAULT);
@@ -396,6 +418,8 @@ void create_screen_main2() {
                             lv_obj_set_pos(obj, 172, -5);
                             lv_obj_set_size(obj, LV_PCT(20), LV_PCT(150));
                             lv_obj_add_event_cb(obj, event_handler_cb_main2_bt_pagina_2, LV_EVENT_ALL, flowState);
+                            lv_obj_add_flag(obj, LV_OBJ_FLAG_SCROLL_ON_FOCUS);
+                            lv_obj_clear_flag(obj, LV_OBJ_FLAG_SCROLLABLE);
                             lv_obj_set_style_text_font(obj, &lv_font_montserrat_32, LV_PART_MAIN | LV_STATE_DEFAULT);
                             lv_obj_set_style_bg_color(obj, lv_color_hex(0xff000000), LV_PART_MAIN | LV_STATE_DEFAULT);
                             {
@@ -417,6 +441,8 @@ void create_screen_main2() {
                             lv_obj_set_pos(obj, -9, -5);
                             lv_obj_set_size(obj, LV_PCT(40), LV_PCT(150));
                             lv_obj_add_event_cb(obj, event_handler_cb_main2_bt_pagina_uno_l, LV_EVENT_ALL, flowState);
+                            lv_obj_add_flag(obj, LV_OBJ_FLAG_SCROLL_ON_FOCUS);
+                            lv_obj_clear_flag(obj, LV_OBJ_FLAG_SCROLLABLE);
                             {
                                 lv_obj_t *parent_obj = obj;
                                 {
@@ -435,6 +461,8 @@ void create_screen_main2() {
                             lv_obj_set_pos(obj, 268, -5);
                             lv_obj_set_size(obj, LV_PCT(40), LV_PCT(150));
                             lv_obj_add_event_cb(obj, event_handler_cb_main2_bt_pagina_tres_r, LV_EVENT_ALL, flowState);
+                            lv_obj_add_flag(obj, LV_OBJ_FLAG_SCROLL_ON_FOCUS);
+                            lv_obj_clear_flag(obj, LV_OBJ_FLAG_SCROLLABLE);
                             {
                                 lv_obj_t *parent_obj = obj;
                                 {
@@ -454,6 +482,7 @@ void create_screen_main2() {
                     objects.panel02_2 = obj;
                     lv_obj_set_pos(obj, -10, 50);
                     lv_obj_set_size(obj, LV_PCT(105), LV_PCT(20));
+                    lv_obj_clear_flag(obj, LV_OBJ_FLAG_SCROLLABLE);
                     lv_obj_set_style_bg_color(obj, lv_color_hex(0xffc8c8c8), LV_PART_MAIN | LV_STATE_DEFAULT);
                     lv_obj_set_style_border_color(obj, lv_color_hex(0xff000000), LV_PART_MAIN | LV_STATE_DEFAULT);
                     lv_obj_set_style_border_width(obj, 2, LV_PART_MAIN | LV_STATE_DEFAULT);
@@ -467,6 +496,8 @@ void create_screen_main2() {
                             lv_obj_set_pos(obj, -8, -5);
                             lv_obj_set_size(obj, LV_PCT(45), LV_PCT(150));
                             lv_obj_add_event_cb(obj, event_handler_cb_main2_bt_conectar_wifi_2, LV_EVENT_ALL, flowState);
+                            lv_obj_add_flag(obj, LV_OBJ_FLAG_SCROLL_ON_FOCUS);
+                            lv_obj_clear_flag(obj, LV_OBJ_FLAG_SCROLLABLE);
                             {
                                 lv_obj_t *parent_obj = obj;
                                 {
@@ -486,6 +517,8 @@ void create_screen_main2() {
                             lv_obj_set_pos(obj, 247, -5);
                             lv_obj_set_size(obj, LV_PCT(45), LV_PCT(150));
                             lv_obj_add_event_cb(obj, event_handler_cb_main2_bt_desconectar_wi_fi_2, LV_EVENT_ALL, flowState);
+                            lv_obj_add_flag(obj, LV_OBJ_FLAG_SCROLL_ON_FOCUS);
+                            lv_obj_clear_flag(obj, LV_OBJ_FLAG_SCROLLABLE);
                             {
                                 lv_obj_t *parent_obj = obj;
                                 {
@@ -504,6 +537,8 @@ void create_screen_main2() {
                             objects.bt_conectado_2 = obj;
                             lv_obj_set_pos(obj, 199, -6);
                             lv_obj_set_size(obj, 32, 32);
+                            lv_obj_add_flag(obj, LV_OBJ_FLAG_SCROLL_ON_FOCUS);
+                            lv_obj_clear_flag(obj, LV_OBJ_FLAG_CLICKABLE|LV_OBJ_FLAG_SCROLLABLE);
                             lv_obj_set_style_radius(obj, 16, LV_PART_MAIN | LV_STATE_DEFAULT);
                             lv_obj_set_style_bg_color(obj, lv_color_hex(0xffff0000), LV_PART_MAIN | LV_STATE_DEFAULT);
                         }
@@ -515,6 +550,7 @@ void create_screen_main2() {
                     objects.panel03_2 = obj;
                     lv_obj_set_pos(obj, -10, 110);
                     lv_obj_set_size(obj, LV_PCT(105), LV_PCT(65));
+                    lv_obj_clear_flag(obj, LV_OBJ_FLAG_SCROLLABLE);
                     lv_obj_set_style_bg_color(obj, lv_color_hex(0xffc8c8c8), LV_PART_MAIN | LV_STATE_DEFAULT);
                     lv_obj_set_style_border_color(obj, lv_color_hex(0xff000000), LV_PART_MAIN | LV_STATE_DEFAULT);
                     lv_obj_set_style_border_width(obj, 2, LV_PART_MAIN | LV_STATE_DEFAULT);
@@ -616,6 +652,8 @@ void create_screen_main2() {
                             lv_obj_set_pos(obj, -10, 130);
                             lv_obj_set_size(obj, 200, 30);
                             lv_obj_add_event_cb(obj, event_handler_cb_main2_bt_dhms_2, LV_EVENT_ALL, flowState);
+                            lv_obj_add_flag(obj, LV_OBJ_FLAG_SCROLL_ON_FOCUS);
+                            lv_obj_clear_flag(obj, LV_OBJ_FLAG_CLICKABLE|LV_OBJ_FLAG_SCROLLABLE);
                             {
                                 lv_obj_t *parent_obj = obj;
                                 {
@@ -636,6 +674,8 @@ void create_screen_main2() {
                             lv_obj_set_pos(obj, 362, 43);
                             lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
                             lv_img_set_src(obj, &img_g2_ejv2);
+                            lv_obj_add_flag(obj, LV_OBJ_FLAG_ADV_HITTEST);
+                            lv_obj_clear_flag(obj, LV_OBJ_FLAG_SCROLLABLE);
                         }
                     }
                 }
@@ -654,6 +694,7 @@ void create_screen_main3() {
     objects.main3 = obj;
     lv_obj_set_pos(obj, 0, 0);
     lv_obj_set_size(obj, 480, 320);
+    lv_obj_clear_flag(obj, LV_OBJ_FLAG_SCROLLABLE);
     {
         lv_obj_t *parent_obj = obj;
         {
@@ -662,6 +703,7 @@ void create_screen_main3() {
             objects.panel_main1_2 = obj;
             lv_obj_set_pos(obj, 0, 0);
             lv_obj_set_size(obj, 480, 320);
+            lv_obj_clear_flag(obj, LV_OBJ_FLAG_SCROLLABLE);
             {
                 lv_obj_t *parent_obj = obj;
                 {
@@ -670,6 +712,7 @@ void create_screen_main3() {
                     objects.panel01_3 = obj;
                     lv_obj_set_pos(obj, -10, -10);
                     lv_obj_set_size(obj, LV_PCT(105), LV_PCT(20));
+                    lv_obj_clear_flag(obj, LV_OBJ_FLAG_SCROLLABLE);
                     lv_obj_set_style_bg_color(obj, lv_color_hex(0xffc8c8c8), LV_PART_MAIN | LV_STATE_DEFAULT);
                     lv_obj_set_style_border_color(obj, lv_color_hex(0xff000000), LV_PART_MAIN | LV_STATE_DEFAULT);
                     lv_obj_set_style_border_width(obj, 2, LV_PART_MAIN | LV_STATE_DEFAULT);
@@ -683,6 +726,8 @@ void create_screen_main3() {
                             lv_obj_set_pos(obj, 172, -5);
                             lv_obj_set_size(obj, LV_PCT(20), LV_PCT(150));
                             lv_obj_add_event_cb(obj, event_handler_cb_main3_bt_pagina_3, LV_EVENT_ALL, flowState);
+                            lv_obj_add_flag(obj, LV_OBJ_FLAG_SCROLL_ON_FOCUS);
+                            lv_obj_clear_flag(obj, LV_OBJ_FLAG_SCROLLABLE);
                             lv_obj_set_style_text_font(obj, &lv_font_montserrat_32, LV_PART_MAIN | LV_STATE_DEFAULT);
                             lv_obj_set_style_bg_color(obj, lv_color_hex(0xff000000), LV_PART_MAIN | LV_STATE_DEFAULT);
                             {
@@ -704,6 +749,8 @@ void create_screen_main3() {
                             lv_obj_set_pos(obj, -9, -5);
                             lv_obj_set_size(obj, LV_PCT(40), LV_PCT(150));
                             lv_obj_add_event_cb(obj, event_handler_cb_main3_bt_pagina_uno_l_1, LV_EVENT_ALL, flowState);
+                            lv_obj_add_flag(obj, LV_OBJ_FLAG_SCROLL_ON_FOCUS);
+                            lv_obj_clear_flag(obj, LV_OBJ_FLAG_SCROLLABLE);
                             {
                                 lv_obj_t *parent_obj = obj;
                                 {
@@ -722,6 +769,8 @@ void create_screen_main3() {
                             lv_obj_set_pos(obj, 268, -5);
                             lv_obj_set_size(obj, LV_PCT(40), LV_PCT(150));
                             lv_obj_add_event_cb(obj, event_handler_cb_main3_bt_pagina_tres_r_1, LV_EVENT_ALL, flowState);
+                            lv_obj_add_flag(obj, LV_OBJ_FLAG_SCROLL_ON_FOCUS);
+                            lv_obj_clear_flag(obj, LV_OBJ_FLAG_SCROLLABLE);
                             {
                                 lv_obj_t *parent_obj = obj;
                                 {
@@ -741,6 +790,7 @@ void create_screen_main3() {
                     objects.panel02_3 = obj;
                     lv_obj_set_pos(obj, -10, 50);
                     lv_obj_set_size(obj, LV_PCT(105), LV_PCT(20));
+                    lv_obj_clear_flag(obj, LV_OBJ_FLAG_SCROLLABLE);
                     lv_obj_set_style_bg_color(obj, lv_color_hex(0xffc8c8c8), LV_PART_MAIN | LV_STATE_DEFAULT);
                     lv_obj_set_style_border_color(obj, lv_color_hex(0xff000000), LV_PART_MAIN | LV_STATE_DEFAULT);
                     lv_obj_set_style_border_width(obj, 2, LV_PART_MAIN | LV_STATE_DEFAULT);
@@ -754,6 +804,8 @@ void create_screen_main3() {
                             lv_obj_set_pos(obj, -8, -5);
                             lv_obj_set_size(obj, LV_PCT(45), LV_PCT(150));
                             lv_obj_add_event_cb(obj, event_handler_cb_main3_bt_rescan_wi_fi_3, LV_EVENT_ALL, flowState);
+                            lv_obj_add_flag(obj, LV_OBJ_FLAG_SCROLL_ON_FOCUS);
+                            lv_obj_clear_flag(obj, LV_OBJ_FLAG_SCROLLABLE);
                             {
                                 lv_obj_t *parent_obj = obj;
                                 {
@@ -773,6 +825,8 @@ void create_screen_main3() {
                             lv_obj_set_pos(obj, 247, -5);
                             lv_obj_set_size(obj, LV_PCT(45), LV_PCT(150));
                             lv_obj_add_event_cb(obj, event_handler_cb_main3_bt_desconectar_wi_fi_3, LV_EVENT_ALL, flowState);
+                            lv_obj_add_flag(obj, LV_OBJ_FLAG_SCROLL_ON_FOCUS);
+                            lv_obj_clear_flag(obj, LV_OBJ_FLAG_SCROLLABLE);
                             {
                                 lv_obj_t *parent_obj = obj;
                                 {
@@ -791,6 +845,8 @@ void create_screen_main3() {
                             objects.bt_conectado_3 = obj;
                             lv_obj_set_pos(obj, 199, -6);
                             lv_obj_set_size(obj, 32, 32);
+                            lv_obj_add_flag(obj, LV_OBJ_FLAG_SCROLL_ON_FOCUS);
+                            lv_obj_clear_flag(obj, LV_OBJ_FLAG_CLICKABLE|LV_OBJ_FLAG_SCROLLABLE);
                             lv_obj_set_style_radius(obj, 16, LV_PART_MAIN | LV_STATE_DEFAULT);
                             lv_obj_set_style_bg_color(obj, lv_color_hex(0xffff0000), LV_PART_MAIN | LV_STATE_DEFAULT);
                         }
@@ -802,6 +858,7 @@ void create_screen_main3() {
                     objects.panel03_3 = obj;
                     lv_obj_set_pos(obj, -10, 110);
                     lv_obj_set_size(obj, LV_PCT(105), LV_PCT(65));
+                    lv_obj_clear_flag(obj, LV_OBJ_FLAG_SCROLLABLE);
                     lv_obj_set_style_bg_color(obj, lv_color_hex(0xffc8c8c8), LV_PART_MAIN | LV_STATE_DEFAULT);
                     lv_obj_set_style_border_color(obj, lv_color_hex(0xff000000), LV_PART_MAIN | LV_STATE_DEFAULT);
                     lv_obj_set_style_border_width(obj, 2, LV_PART_MAIN | LV_STATE_DEFAULT);
@@ -815,6 +872,8 @@ void create_screen_main3() {
                             lv_obj_set_pos(obj, -10, 130);
                             lv_obj_set_size(obj, 200, 30);
                             lv_obj_add_event_cb(obj, event_handler_cb_main3_bt_dhms_3, LV_EVENT_ALL, flowState);
+                            lv_obj_add_flag(obj, LV_OBJ_FLAG_SCROLL_ON_FOCUS);
+                            lv_obj_clear_flag(obj, LV_OBJ_FLAG_CLICKABLE|LV_OBJ_FLAG_SCROLLABLE);
                             {
                                 lv_obj_t *parent_obj = obj;
                                 {
@@ -835,6 +894,8 @@ void create_screen_main3() {
                             lv_obj_set_pos(obj, 335, 4);
                             lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
                             lv_img_set_src(obj, &img_g2_ejv1);
+                            lv_obj_add_flag(obj, LV_OBJ_FLAG_ADV_HITTEST);
+                            lv_obj_clear_flag(obj, LV_OBJ_FLAG_SCROLLABLE);
                         }
                     }
                 }
