@@ -118,7 +118,7 @@
         "type": "integer",
         "defaultValue": "100",
         "persistent": false,
-        "native": false
+        "native": true
       }
     ],
     "structures": [],
@@ -2890,6 +2890,7 @@
                       },
                       "timeline": [],
                       "eventHandlers": [],
+                      "identifier": "SliderPorcentaje_Main2",
                       "leftUnit": "px",
                       "topUnit": "px",
                       "widthUnit": "%",
@@ -2955,6 +2956,7 @@
                           },
                           "timeline": [],
                           "eventHandlers": [],
+                          "identifier": "LabelSliderPorcentaje",
                           "leftUnit": "px",
                           "topUnit": "px",
                           "widthUnit": "content",
