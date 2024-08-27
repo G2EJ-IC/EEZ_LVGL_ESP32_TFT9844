@@ -14,8 +14,8 @@ int32_t get_var_slider_porcentaje()
 {
     return selected_item_index;
 }
-
 void set_var_slider_porcentaje(int32_t value)
 {
     selected_item_index = value;
 }
+

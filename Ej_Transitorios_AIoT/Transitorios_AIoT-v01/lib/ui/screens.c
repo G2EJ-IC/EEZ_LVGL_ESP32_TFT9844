@@ -1,3 +1,4 @@
+#include <string.h>
 #include "screens.h"
 #include "images.h"
 #include "fonts.h"
