@@ -49,7 +49,7 @@
 //#include <User_Setups/Setup19_RM68140_Parallel.h>	 // Setup file configured for RM68140 with parallel bus
 
 //#include <User_Setups/Setup20_ILI9488.h>           // Setup file for ESP8266 and ILI9488 SPI bus TFT
-#include <User_Setups/Setup21_ILI9488.h>           // Setup file for ESP32 and ILI9488 SPI bus TFT
+#include <User_Setups/Setup21_ILI9488.h>             // Setup file for ESP32 and ILI9488 SPI bus TFT
 
 //#include <User_Setups/Setup22_TTGO_T4.h>           // Setup file for ESP32 and TTGO T4 version 1.2
 //#include <User_Setups/Setup22_TTGO_T4_v1.3.h>      // Setup file for ESP32 and TTGO T4 version 1.3
